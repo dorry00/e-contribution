@@ -1,38 +1,412 @@
-.App {
-  text-align: center;
-}
+/* sign up and login css */
 
-.App-logo {
-  height: 40vmin;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: poppins, sans-serif;
+  font-weight: bold;
+  background: #fff2e6 !important;
+  height: 100vh;
+  overflow: hidden;
+}
+.center {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: #fff;
+  border-radius: 10px;
+}
+.center h1 {
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid #adadad;
+}
+.center form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+form .txt_field {
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+.txt_field input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.txt_field label {
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
   pointer-events: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pass a {
+  margin: -5px 0 5px 5px;
+  color: #2691d9;
+  cursor: pointer;
+  text-decoration: none;
+}
+.pass a:hover {
+  text-decoration: underline;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  background: #2691d9;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 25px;
+}
+input[type="submit"]:hover {
+  border-color: #2691d9;
+  transition: 0.5s;
+}
+.signup_link {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: black;
+}
+.signup_link a {
+  color: #2691d9;
+  text-decoration: none;
+}
+.signup_link a:hover {
+  text-decoration: underline;
+}
+.error-message {
+  color: red;
+  font-size: xx-small;
+}
+
+/* navbar css */
+.navbar {
+  background: #ffffff;
+  width: 100%;
+  height: 50px;
+  position: sticky;
+  top: 0;
   display: flex;
-  flex-direction: column;
+  z-index: 999;
+}
+.navbarLeft {
+  flex: 3;
+  display: flex;
   align-items: center;
+  justify-content: space-evenly;
+}
+.logo {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.logoText {
+  margin-left: 20px;
+}
+
+.navbarCenter {
+  flex: 6;
+}
+.navbarRight {
+  flex: 3;
+  display: flex;
+  justify-content: end;
+}
+.navbarList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.navbarListItem {
+  margin-right: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 15px;
+  color: rgb(189, 187, 185);
+}
+
+.navbarEndItem {
+  font-size: 16px;
+  margin-right: 20px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+.navbarEndItem {
+  background-color: white;
+  color: rgb(88, 86, 86);
+  padding: 6px 10px;
+  margin-top: 6px;
+  border: 1px solid rgb(209, 206, 206);
+  cursor: pointer;
+  margin-right: 10px;
+  opacity: 0.9;
+  width: 100px;
+  border-radius: 30px;
+}
+
+.navbarEndItem:last-child {
+  background-color: teal;
+  border: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* sideBar */
+
+.sidebar {
+  flex: 1;
+  position: sticky;
+  top: 50px;
+  height: calc(100vh-50px);
+  background-color: rgb(249, 249, 252);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebarContainer {
+  padding: 15px;
+  color: rgb(146, 146, 146);
 }
+.sidebarUsername {
+  font-size: 12px;
+  color: rgb(56, 54, 54);
+}
+.sidebarList {
+  padding: 6px;
+  list-style: none;
+}
+.sidebarListItem {
+  display: flex;
+  border-radius: 10px;
+  padding: 6px;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.sidebarListItem:hover {
+  background-color: rgb(198, 197, 199);
+  color: #ffffff;
+}
+
+.createContribution {
+  flex: 4;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.contribuitionForm {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: auto;
+  border: none;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.formTitle {
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.formItem {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin: auto;
+  padding: 0 20px;
+}
+.formItem > label {
+  font-size: 16px;
+  font-weight: 800;
+  color: rgb(109, 105, 105);
+  text-transform: capitalize;
+}
+.formItem > label {
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 800;
+  color: rgb(109, 105, 105);
+  text-transform: capitalize;
+}
+.formItem > input {
+  height: 40px;
+  padding: 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%;
+}
+.formItem > input:focus {
+  outline: none;
+}
+.formItem > textarea {
+  height: 60;
+  padding: 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 100%;
+}
+.formItem > textarea:focus {
+  outline: none;
+}
+.formBtn {
+  border: none;
+  background-color: teal;
+  width: 200px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  padding: 7px 10px;
+  margin-bottom: 30px;
+}
+
+.loginBtn{
+  border: none;
+  background-color: teal;
+  width: 200px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  padding: 7px 10px;
+  margin-bottom: 30px;
+
+}
+.loginBtn:disabled{
+ cursor:not-allowed
+
+}
+
+/* contributions */
+.contribution{
+  padding: 10px;
+}
+.contribuitionWrapper{
+  padding: 20px;
+  padding-right: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  border:1px solid grey;
+  width: 100%;
+  height: calc(100vh - 50px);
+  box-shadow: 0 0 16px -8px rgba(0,0,0,0.68);
+}
+
+.postTop{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topLeft{
+  display: flex;
+  align-items: center;
+ 
+}
+
+.topLeft > .profileLogo{
+  width: 32px;
+  height: 32px;
+  margin-right: 5px;
+  background-color: rgb(145, 142, 138);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.nameInfo{
+  display: flex;
+  flex-direction: column;
+}
+.profileName{
+  font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.contributionTitle{
+  font-size: 20px;
+  text-transform: capitalize;
+
+}
+.creationInfo{
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: stretch;
+}
+.contributionDate{
+font-size: 10px;
+font-style: italic;
+}
+.targetAmount{
+  background-color: teal;
+  margin-left: 20px;
+  color: white;
+  border-radius: 35px;
+  padding: 5px;
+  margin-top: 10px;
+
+}
+
+.editContribution{
+  float: right;
+  font-size: 16px;
+
+}
+.contributionIcon{
+ margin-left: 10px;
+ cursor: pointer;
+ margin-bottom: 10px;
+
+}
+
+.contributionIcon:first-child{
+  color: teal;
+
+}
+.contributionIcon:last-child{
+  color:tomato;
+
+}
+
+.contributions{
+  flex:4;
+}
+.contributionsContainer{
+  display: flex;
+
+}
+.createContributionContainer{
+  display: flex;
+}
+.AccountDetailsWrapper{
+  display: flex;
+}
+.accountDetails{
+  flex:4;
+}
+
