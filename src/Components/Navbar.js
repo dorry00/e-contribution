@@ -12,6 +12,8 @@ function Navbar() {
     dispatch({type:"LOGOUT"})
   }
  
+ 
+  
   return (
     <div className="navbar">
       <div className="navbarLeft">
@@ -23,16 +25,16 @@ function Navbar() {
       <div className="navbarCenter">
         <ul className="navbarList">
           <Link className="link" to="/">
-            <li className="navbarListItem">HOME</li>
-          </Link>
-          <Link className="link" to="/contribute">
-            <li className="navbarListItem">CONTRIBUTE</li>
+            <li className="navbarListItem">Home</li>
           </Link>
           <Link className="link" to="/contributions">
-            <li className="navbarListItem">VIEW FUNDRAISERS</li>
+            <li className="navbarListItem">Contributions</li>
           </Link>
           <Link className="link" to="/createContribution">
-            <li className="navbarListItem">CREATE FUNDRAISER</li>
+            <li className="navbarListItem">Create Contribution</li>
+          </Link>
+          <Link className="link" to="/createContribution">
+            <li className="navbarListItem">About Us</li>
           </Link>
         </ul>
       </div>

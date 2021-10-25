@@ -1,0 +1,6 @@
+.transactionsWrapper{
+    display: flex;
+}
+.transactions{
+    flex: 4;
+}

@@ -1,80 +1,47 @@
 import React from "react";
-import "./home.css"
-import image1 from "../Assets/Images/pic.png.png"
-import image2 from "../Assets/Images/profile.svg"
-import image3 from "../Assets/Images/profile.svg" 
-import image4 from "../Assets/Images/profile.svg"
-import image5 from "../Assets/Images/pic.png.png"
+import "./home.css";
+import image2 from "../../Assets/Images/profile.svg";
+import image3 from "../../Assets/Images/profile.svg";
+import image4 from "../../Assets/Images/profile.svg";
+import image5 from "../../Assets/Images/pic.png.png";
+import landingPage from "../../Assets/Images/landingPage.png"
+
 
 
 export default function Home() {
   return (
     <>
-      <div className="menu-bar">
-        <ul>
-          <div>
-            <img className="pic" src={image1} alt="" />
-          </div>
-          <li className="">
-            <a href="/">
-              <i className="fa fa-home" aria-hidden="true"></i>Home
-            </a>
-          </li>
-          <li>
-            <a href="#">Discover</a>
-            <div className="sub-menu-1">
-              <ul>
-                <li>
-                  <a href="#">Fundraisers</a>
-                </li>
-              </ul>
-            </div>
-          </li>
+      <div className="landing">
+        <div className="lead">
+          <h1>
+            Together,<br/> we can grow.
+          </h1>
+          <p className="leadParagraph">
+            Msaada app is your online fundraising solution where you can create fundraisers and share with your friends and family for contribution.
+            
+            </p>
 
-          <li>
-            <a href="#">Fundraise for</a>
-            <div className="sub-menu-1">
-              <ul>
-                <li>
-                  <a href="#">Medical</a>
-                </li>
-                <li>
-                  <a href="#">Emergency</a>
-                </li>
-                <li>
-                  <a href="#">Community</a>
-                </li>
-                <li>
-                  <a href="#">Education</a>
-                </li>
-                <li>
-                  <a href="#">Pandemics</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-
-          <li>
-            <a href="/login">Sign In</a>
-          </li>
-          <li>
-            <a href="/register">Start a Msaada contribution</a>
-          </li>
-        </ul>
-      </div>
-      <br />
-      <div className="section1">
-        <p>
+        <p className="landingParagraph">
           You are raising funds for the people <br /> and causes that matter to
           you.
         </p>
+        <button className="landingBtn">
+          Get Started
+
+        </button>
+
+        </div>
+        <div className="imageDiv">
+          <img src={landingPage} className="landingImage" alt=""/>
+          </div>
+       
       </div>
 
       <div className="section2">
         <div className="container">
           <div className="card">
             <div className="circle">
-              <img src={image2} alt=""/>
+              <img src={image2} alt="" />
             </div>
             <div className="content">
               <p>
@@ -92,7 +59,7 @@ export default function Home() {
 
           <div className="card">
             <div className="circle">
-              <img src={image3} alt=""/>
+              <img src={image3} alt="" />
             </div>
             <div className="content">
               <p>
@@ -129,7 +96,10 @@ export default function Home() {
 
       <div className="section4">
         <div>
-          <img alt ="" src="https://www.bbva.com/wp-content/uploads/2017/08/movil-smartphones-clientes-apps-usuarios-tecnologia-recurso-BBVA-e1514912389593-1024x685.jpg" />
+          <img
+            alt=""
+            src="https://www.bbva.com/wp-content/uploads/2017/08/movil-smartphones-clientes-apps-usuarios-tecnologia-recurso-BBVA-e1514912389593-1024x685.jpg"
+          />
         </div>
         <h2>AVAILABLE NOW</h2>
 
@@ -149,7 +119,7 @@ export default function Home() {
               events ranging from diverse catastrophes and providing a caring
               experience.
               <div>
-                <img className="pic1" src={image5} alt=""/>
+                <img className="pic1" src={image5} alt="" />
               </div>
             </p>
           </div>

@@ -8,10 +8,54 @@
     font-size: 15px;
 }
 body{
-    background-color: #4267b2;
+    /* background-color: #4267b2; */
     background-size: cover;
     background-position: center;
     overflow: scroll;
+}
+.landing{
+    display: flex;
+    background-color: white;
+}
+.lead{
+    flex:6;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.lead .leadParagraph{
+   font-size: 16px;
+   margin-left: 50px;
+   margin-top: 30px;
+   color: rgb(161, 159, 159);
+   font-weight: 500;
+}
+.lead .landingParagraph{
+    font-size: 14px;
+    margin-left: 50px;
+    margin-top: 30px;
+    color: black;
+    font-weight: 600;
+
+
+}
+.lead>h1{
+    font-size: 30px;
+    margin-top: 30px;
+    line-height: 40px;
+    margin-left: 50px;
+}
+
+.landingBtn{
+    border-radius: 25px;
+    width:150px;
+    padding: 10px;
+    margin-top: 50px;
+    cursor: pointer;
+    margin-left:50px;
+    background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(62,136,136,1) 40%, rgba(0,212,255,1) 100%);
+}
+.imageDiv{
+    flex:6;
 }
 
 .menu-bar{

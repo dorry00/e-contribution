@@ -1,16 +1,13 @@
 import React from "react";
-import "../App.css";
-import Contribution from "./Contribution"
 
-function SingleContribution({contributions}) {
+import Contribution from "./Contribution/Contribution";
+
+function SingleContribution({ contributions }) {
   return (
-    <div>
-     {
-         contributions.map((contribution)=>(
-             <Contribution key = {contribution.id}contribution={contribution}/>
-         )
-         )
-     }
+    <div className="individualContribution">
+      {contributions.map((contribution) => (
+        <Contribution key={contribution.id} contribution={contribution} />
+      ))}
     </div>
   );
 }

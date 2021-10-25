@@ -1,0 +1,117 @@
+.IndividualContributionWrapper{
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    height:100vh;
+    display: flex;
+    top:0;
+}
+.IndividualContribution{
+flex:6;
+width: 100%;
+margin-left: 50px;
+}
+.otherDiv{
+    flex:6;
+
+}
+
+.contributionHeader{
+    font-size: 30px !important;
+    margin-top: 50px;
+    text-transform: capitalize;
+   color: black;
+}
+.IndividualContribution>p{
+    font-size: 18px;
+    color: rgb(29, 28, 28);
+    font-weight: 400; 
+    line-height: 25px;
+    justify-content: start;  
+}
+.author{
+    margin-top: 20px;
+    color: rgb(22, 13, 13);
+}
+.author>span{
+    text-decoration: underline;
+}
+
+.paymentButton{
+    width:200px;
+    margin-top: 30px;
+    background: white;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    border:1px solid black ;
+}
+.paymentButton:hover{
+   
+    background:rgb(232, 236, 236);
+    
+}
+.socialIcons{
+    display: flex;
+    margin-top: 40px;
+}
+.socialIcon{
+    font-size: 30px !important ;
+   
+    margin-right: 20px;
+    
+}
+.socialIcon:hover{
+       color:rgb(155, 158, 158);
+    
+}
+.target{
+    margin-left: 10px;
+    margin-top: 30px;
+}
+.amount-raised-container {
+    margin: 40px;
+    margin-left: 30px;
+  }
+  
+  .amount-raised {
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    background: #666;
+    border: 2px solid #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .amount-raised .amount-text {
+    font-weight: bold;
+  }
+  
+  .dollars-per-mile {
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline;
+    background: #eee;
+    border: 1px solid #333;
+    padding: 5px 15px 5px 40px;
+    margin-left: -30px;
+    position: relative;
+    z-index: 1;
+  }
+  .editContribution{
+      margin-top: 40px;
+  }
+

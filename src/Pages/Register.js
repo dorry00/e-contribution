@@ -40,7 +40,7 @@ response.data.success && window.location.replace("/login");
 
   return (
     <div>
-      <div class="center">
+      <div className="center">
         <h1>Sign Up</h1>
         <form>
           <div className="txt_field">

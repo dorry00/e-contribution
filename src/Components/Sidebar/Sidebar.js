@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../App.css"
 function Sidebar() {
   return (
     <div className="sidebar">
@@ -23,14 +24,12 @@ function Sidebar() {
                 Create Contribution
               </li>
             </Link>
-            <Link className="link" to ="/transactions">
             <li className="sidebarListItem">
               <span>
                 <i className="sidebarIcon fas fa-history"></i>
               </span>
               My Transactions
             </li>
-            </Link>
 
             <Link to="/accountDetails" className="link">
               <li className="sidebarListItem">
@@ -40,6 +39,7 @@ function Sidebar() {
                 Account Details
               </li>
             </Link>
+            <Link  to="/updateAccount" className="link">
 
             <li className="sidebarListItem">
               <span>
@@ -47,6 +47,7 @@ function Sidebar() {
               </span>
               Update Account
             </li>
+            </Link>
 
             <li className="sidebarListItem">
               <span>
