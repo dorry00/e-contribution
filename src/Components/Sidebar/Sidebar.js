@@ -24,12 +24,14 @@ function Sidebar() {
                 Create Contribution
               </li>
             </Link>
+            <Link className="link" to="/transactions">
             <li className="sidebarListItem">
               <span>
                 <i className="sidebarIcon fas fa-history"></i>
               </span>
               My Transactions
             </li>
+            </Link>
 
             <Link to="/accountDetails" className="link">
               <li className="sidebarListItem">

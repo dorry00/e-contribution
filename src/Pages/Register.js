@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import swal from "sweetalert";
 import { Link } from "react-router-dom";
 
 function Register() {
@@ -13,24 +12,15 @@ function Register() {
   //register a user
   async function RegisterUser(e) {
     e.preventDefault();
-    setErrors([]);                   
+    setErrors([]);
     let userDetails = { name, email, phone, password };
 
     axios
       .post("https://msaadaproject.herokuapp.com/api/register", userDetails)
       .then(function (response) {
         console.log(response.data);
-response.data.success && window.location.replace("/login");
-      //   if (response.data.success === true) {
-      //     swal({
-      //       title: "Success",
-      //       text: "You have succefully created an account!",
-      //       icon: "success",
-      //     });
-      //   } else {
-      //     setErrors(response.data.error);
-      //   }
-      !response.data.success && setErrors(response.data.error);
+        response.data.success && window.location.replace("/login");
+        !response.data.success && setErrors(response.data.error);
       })
 
       .catch(function (error) {
@@ -39,7 +29,7 @@ response.data.success && window.location.replace("/login");
   }
 
   return (
-    <div>
+    <div className="registerWrapper">
       <div className="center">
         <h1>Sign Up</h1>
         <form>
@@ -95,11 +85,11 @@ response.data.success && window.location.replace("/login");
             value="Sign Up to Msaada App"
           />
           <div className="signup_link">
-          Have an account?
-          <Link className="link" to="/login">
-            Log In 
-          </Link>
-        </div>
+            Have an account?
+            <Link className="link" to="/login">
+              Log In
+            </Link>
+          </div>
         </form>
       </div>
     </div>

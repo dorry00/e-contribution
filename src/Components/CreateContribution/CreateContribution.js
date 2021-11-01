@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
-import "../App.css";
-
-import ViewallContributions from "./ViewallContributions";
-import Sidebar from "./Sidebar";
+import "./CreateContribution.css";
+import Sidebar from "../Sidebar/Sidebar";
 
 function CreateContribution() {
   const [title, setTitle] = useState("");
@@ -12,8 +10,12 @@ function CreateContribution() {
   const [targetAmount, setTargetAmount] = useState("");
   const [paymentoption, setPaymentOption] = useState("");
   const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+  
 
   async function handleCreateContribution(e) {
+      setLoading(true)
     e.preventDefault();
     let contributionDetails = {
       title,
@@ -29,21 +31,15 @@ function CreateContribution() {
       )
       .then(function (response) {
         console.log(response.data);
+        setLoading(false)
 
         if (response.data.success === true) {
           swal({
             title: "Success",
-            text: "You have succefully created a contrinution!",
+            text: "Succefully created a contribution! We will verify it very soon! ",
             icon: "success",
           });
-        } else {
-          setErrors(response.data.error);
-          swal({
-            title: "Something went wrong",
-            text: "we could not create your fundraiser!",
-            icon: "error",
-          });
-        }
+        } 
       })
 
       .catch(function (error) {
@@ -54,14 +50,18 @@ function CreateContribution() {
   return (
     <>
     <div className="createContributionContainer">
-      <Sidebar/>
+      <Sidebar className="sidebar"/>
    
     <div className="createContribution">
-      <form className="contribuitionForm">
+        <div className="createContributionWrapper">
         <h1 className="formTitle">Create A Contribution</h1>
+      <form className="formInputs" > 
+      
+          
 
-        <div className="formItem">
-          <label htmlFor="title">
+        <div className="inputs">
+            
+          <label htmlFor="title" className="label">
             contribution title:
           </label>
           <input
@@ -70,30 +70,11 @@ function CreateContribution() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             title="title"
-            required
+            className="input"
             autoComplete="true"
           />
-        </div>
-        <span>{errors.title}</span>
-        <div className="formItem">
-          <label htmlFor="description">
-           description
-          </label>
-          <textarea
-            type="text"
-            id="description"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-            placeholder="Enter description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            name="description"
-            required
-            autoComplete="true"
-          />
-          <span>{errors.description}</span>
-        </div>
-
-        <div className="formItem">
+          <span className="errorMessage">{errors.title}</span>
+          
           <label htmlFor="psw">
             target amount
           </label>
@@ -104,12 +85,11 @@ function CreateContribution() {
             onChange={(e) => setTargetAmount(e.target.value)}
             name="targetamount"
             required
+            className="input"
             autoComplete="true"
           />
           <span>{errors.targetamount}</span>
-        </div>
-        <div className="formItem">
-
+          
         <label htmlFor="paymentoption">
          payment Option
         </label>
@@ -120,18 +100,52 @@ function CreateContribution() {
           value={paymentoption}
           onChange={(e) => setPaymentOption(e.target.value)}
           required
+          className="input"
           autoComplete="true"
         />
         <span>{errors.paymentoption}</span>
-</div>
-        <div className="formItem">
-          <button className="formBtn" type="submit" onClick={handleCreateContribution}>
-            create contribution
+
+        </div>   
+        
+
+
+          
+          
+        
+        
+        <div className="textareas">
+          <label htmlFor="description">
+           description
+          </label>
+          <textarea
+            type="text"
+            id="description"
+            className="textarea"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+            placeholder="Enter description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            name="description"
+            required
+            autoComplete="true"
+          />
+          <span className="errorMessage">{errors.description}</span>
+        </div>
+        
+
+       
+        <button className="formButton" type="submit" onClick={handleCreateContribution}>
+            {loading && "Creating Contribution ..."}
+            {!loading && "create contribution"}
+           
           </button>
-          </div>
+          
+        
         
       </form>
+     
 
+    </div>
     </div>
     </div>
     </>
@@ -139,3 +153,4 @@ function CreateContribution() {
 }
 
 export default CreateContribution;
+

@@ -3,6 +3,32 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../Components/IndividualContribution/IndividualContribution.css"
+import MakePaymentPage from "./MakePaymentPage/MakePaymentPage";
+import {
+  EmailShareButton,
+  FacebookShareButton, 
+  PinterestShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton
+} from "react-share";
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  PinterestIcon,
+
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+
+  WhatsappIcon,
+  WorkplaceIcon
+} from "react-share";
 
 function IndividualContribution() {
   const location = useLocation();
@@ -13,6 +39,7 @@ function IndividualContribution() {
   const [targetAmount, setTargetAmount] = useState("");
   const [paymentoption, setPaymentOption] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const [openPaymentModal, setopenPaymentModal] = useState();
 
   // fetch a single post
   useEffect(() => {
@@ -22,7 +49,7 @@ function IndividualContribution() {
         "https://msaadaproject.herokuapp.com/api/view/contribution",
         id
       );
-      
+
       setContribution(res.data.response);
       setTitle(res.data.response.title);
       setDescription(res.data.response.description);
@@ -30,15 +57,11 @@ function IndividualContribution() {
       setPaymentOption(res.data.response.paymentoption);
     };
     getContribution();
-
-
-
-
-    
   }, [path]);
 
-  // delete a sigle contribution
-  const handleDelete = async () => {
+  // delete a single contribution
+  const handleDelete = async (e) => {
+    e.preventDefault()
     let id = { id: path };
     try {
       const res = await axios.post(
@@ -53,179 +76,152 @@ function IndividualContribution() {
   };
 
   // handle update
-  const handleUpdate = async () => {
+  const handleUpdate = async (e) => {
+    e.preventDefault();
     let id = path;
-    let updatedDetails =
-    {
-      id,
-      title,
-      description,
-      targetAmount,
-      paymentoption,
-      verified: 1 ,
+    let updatedDetails = {
+      id: id,
+      title: title,
+      description: description,
+      targetAmount: targetAmount,
+      paymentoption: paymentoption,
+      verified: 1,
     }
-    
-    try {
-      const res = await axios.post(
-        "https://msaadaproject.herokuapp.com/api/update/contribution",updatedDetails  
-      );
-      console.log(updatedDetails)
-      if(res){
-      console.log("working");
-      }else{
-        console.log("working");
-      }
-      
-       setUpdateMode(false)
-    } catch (error) {
-      console.log(error.response);
-    }
+    await axios.post(
+      "https://msaadaproject.herokuapp.com/api/update/contribution", updatedDetails
+    );
+    window.location.reload()
+    setUpdateMode(false)
   };
-  
-
-  // }
 
   // end of delete
   return (
     <div className="IndividualContributionWrapper">
-      <div className = "IndividualContribution">
-      <h1 className="contributionHeader">{title}</h1>
-      
-      <p className="description">{description}</p>
-      <p className="author">Contribution by <span>Dorry Elmah</span></p>
-      <p classname="author">created on<span> {new Date(contribution.created_at).toDateString()} </span></p>
-      <button type="submit" className="paymentButton">Donate</button>
+      {openPaymentModal && <MakePaymentPage contributionId={contribution.id} contributionTitle={contribution.title} closePaymentModal={setopenPaymentModal} />}
+          <div className="IndividualContribution">
+        <h1 className="contributionHeader">{contribution.title}</h1>
+        <p className="description">{contribution.description}</p>
+        <p className="author">Contribution by <span>Dorry Elmah</span></p>
+        <p className="author">created on<span> {new Date(contribution.created_at).toDateString()} </span></p>
+        <button type="submit" className="paymentButton" onClick={() => setopenPaymentModal(true)}>Donate</button>
 
-      <div className="socialIcons">
-         
-  <Link className=" link ">
-    <i className=" socialIcon fab fa-twitter"></i>
-     </Link>
-  
-  <Link  className=" link ">
-    <i className=" socialIcon fab fa-telegram"></i>
-   
-  </Link>
-  <Link className=" link">
-    <i className=" socialIcon fab fa-whatsapp"></i>
-    
-  </Link>
-  <Link className="link">
-     <i className="socialIcon fab fa-facebook"></i>
-    
-    </Link>
-      </div>
-      </div>
+        <div className="socialIcons">
+
+          <FacebookShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+          quote={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
+          hashtag={"Helpingiscaring"}>
+          <FacebookIcon className="socialIcon" round={true}></FacebookIcon>
+          </FacebookShareButton>
+
+          <WhatsappShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+          separator={""}
+          title ={"Hello friend I just donated towards this contribution,help us reach the goal by donating too !"}>
+          <WhatsappIcon round={true} className="socialIcon"></WhatsappIcon>
+          </WhatsappShareButton>
+
+          <TelegramShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+          title ={"Hello friend I just donated towards this contribution,help us reach the goal by donating too !"}> 
+            <TelegramIcon round={true} className="socialIcon">
+            </TelegramIcon>
+           </TelegramShareButton>
+
+           <TwitterShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+            hashtags = {["Helpingiscaring"]} 
+           title ={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
+          ><TwitterIcon round={true} className="socialIcon">
+           </TwitterIcon>
+           </TwitterShareButton>
+
+           <EmailShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+          hashtags = {["Helpingiscaring"]}
+          subject={"Donation to a msaada app contribution"}
+          separator={""} 
+           body ={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
+          >
+           <EmailIcon className="socialIcon" round={true}></EmailIcon>
+           </EmailShareButton>
 
 
-      <div className="otherDiv">
-      <div className="amount-raised-container">
-  <div className="amount-raised"><span className="amount-text">{targetAmount} /=</span> raised </div>
-  <div className="dollars-per-mile">{targetAmount} /= needed</div>
-
-  </div>
-  
 
 
- {/* <div className="paymentDetails"> */}
-
-      
-      {updateMode ? (
-        <div className="updateContributionForm">
-          <form className="editForm">
-            <input 
-            className="input"
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            
-            <input
-              type="text"
-              className="input"
-              value={targetAmount}
-              onChange={(e) => setTargetAmount(e.target.value)}
-            />
-            <input
-              type="text"
-              className="input"
-              value={paymentoption}
-              onChange={(e) => setPaymentOption(e.target.value)}
-            />
-            <textarea
-              type="text"
-              className="input"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <button type="submit" onClick={handleUpdate}>Edit</button>
-          </form>
-         
         </div>
-      ) : (
-        <div className="editContribution">
-          <i
-            className=" contributionIcon  far fa-edit"
-            onClick={() => setUpdateMode(true)}
-          ></i>
-          <i
-            className=" contributionIcon fas fa-trash-alt"
-            onClick={handleDelete}
-          ></i>
-        </div>
-      )}
       </div>
 
-
-
-<div> 
-{/* </div> */}
-
-
-
-
-
-
-
-     </div>
-     
-      
-
-
-        
-
-      
-      
-{/*       
+      <div >
+        <div className="amount-raised-container">
+          <div className="amount-raised"><span className="amount-text">{targetAmount} /=</span> raised </div>
+          <div className="dollars-per-mile">{targetAmount} /= needed</div>
         </div>
-        <div>
-        <input id="clickMe" type="checkbox" />
-<label class="button" for="clickMe">Make donation</label>
-<div className="modal">
-  <label for="clickMe">x</label>
-  <div className="form">
-  <h2>Make Donation</h2>
-  <form>
-    <div className="left section">
-      <input type="text" placeholder="Amount" required/>
-      
-      <input type="tel" name="tel" placeholder="Your telephone number" required/>
-    </div>
-    <div className="right section">
-      < textarea name="comment" placeholder="Your comment" required/>
-    </div>
-    <button type="submit" className="sendForm left">Confirm payment</button>
-    <label for="showForm" className="closeFormLabel left">Cancel</label>
-  </form>
-</div>
- 
-</div>
-        </div>  */}
         </div>
         
 
+        
+
+        {updateMode ? (
+          
+          <div className="contributionBackground">
+          <div className="updateContributionForm">
+          <h3> Edit contribution</h3>
+            <form >
+              <div className="editForm">
+              <div className="inputs">
+                <label>Title</label>
+              <input
+                className="input"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <label>Amount</label>
+              <input
+                type="text"
+                className="input"
+                value={targetAmount}
+                onChange={(e) => setTargetAmount(e.target.value)}
+              />
+               <label>Payment option</label>
+              <input
+                type="text"
+                className="input"
+                value={paymentoption}
+                onChange={(e) => setPaymentOption(e.target.value)}
+              />
+              </div>
+              <div className="textareas">
+              <label>Description</label>
+              <textarea
+                type="text"
+                className="input"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              </div>
+              </div>
+              <div className="editBtns">
+              <button onClick={()=>setUpdateMode(false)} className="cancelButton">cancel</button>
+              <button type="submit" onClick={handleUpdate} className="editBtn">Edit</button>
+              </div>
+            </form>
+</div>
+          </div>
+          
+        ) : (
+          <div className="editContribution">
+            <i
+              className=" contributionIcon  far fa-edit"
+              onClick={() => setUpdateMode(true)}
+            ></i>
+            <i
+              className=" contributionIcon fas fa-trash-alt"
+              onClick={handleDelete}
+            ></i>
+          </div>
+        )}
+    
       
+    </div>
   );
+
 }
 
 export default IndividualContribution;

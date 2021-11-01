@@ -16,6 +16,7 @@ export default function Login() {
     user && window.location.replace("/contributions");
   }
   return (
+    <div className="registerWrapper">
     <div className="center">
       <h1>Login</h1>
       <form method="post">
@@ -62,6 +63,7 @@ export default function Login() {
           </Link>
         </div>
       </form>
+    </div>
     </div>
   );
 }

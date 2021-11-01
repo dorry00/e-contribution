@@ -2,21 +2,30 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap");
 body {
-  margin: 0;
+  /* background-attachment: fixed !important; */
+   margin: 0;
   padding: 0;
   font-family: poppins, sans-serif;
-  /* font-weight: bold; */
   background: #fff2e6 !important;
-  height: 100vh;
-  overflow: hidden;
+  overflow-x: scroll ; 
+  height: 100%;
+  
+}
+.registerWrapper{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  
 }
 .center {
-  position: absolute;
-  top: 55%;
-  left: 50%;
+  
+  margin: 20px;
   padding: 10px;
-  transform: translate(-50%, -50%);
-  width: 400px;
+  overflow: hidden !important;
+  width: 40%;
+  height: 80%;
   background: #fff;
   border-radius: 10px;
 }
@@ -178,11 +187,11 @@ input[type="submit"]:hover {
 
 .sidebar {
   flex: 1;
-  position: sticky;
-  top: 50px;
+  position:sticky !important;
+   top: 50px;
+   overflow-x: hidden !important;
   background-color: rgb(236, 236, 245);
-  position: sticky;
-  height: 100vh;
+    height: 100vh;
 }
 
 .sidebarContainer {
@@ -215,70 +224,21 @@ input[type="submit"]:hover {
   font-size: 16px !important;
   margin-right: 10px;
 }
-.createContribution {
-  flex: 4;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
+
 
 .contribuitionForm {
   background-color: #fff;
-  margin: 20px auto;
+  
   padding: auto;
   border: none;
   border-radius: 5px;
   width: 50%;
 }
 
-.formTitle {
-  font-weight: 600;
-  font-size: 20px;
-  text-align: center;
-  margin-top: 10px;
-}
 
-.formItem {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  margin: auto;
-  padding: 0 20px;
-}
-.formItem > label {
-  font-size: 16px;
-  font-weight: 800;
-  color: rgb(109, 105, 105);
-  text-transform: capitalize;
-}
-.formItem > label {
-  font-size: 16px;
-  margin-bottom: 8px;
-  font-weight: 800;
-  color: rgb(109, 105, 105);
-  text-transform: capitalize;
-}
-.formItem > input {
-  height: 40px;
-  padding: 15px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  width: 100%;
-}
-.formItem > input:focus {
-  outline: none;
-}
-.formItem > textarea {
-  height: 60;
-  padding: 15px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  width: 100%;
-}
-.formItem > textarea:focus {
-  outline: none;
-}
+
+
+
 .formBtn {
   border: none;
   background-color: teal;
@@ -448,13 +408,8 @@ font-style: italic;
   color: #444;
 
 }
-.contributionsContainer{
-  display: flex;
 
-}
-.createContributionContainer{
-  display: flex;
-}
+
 .AccountDetailsWrapper{
   display: flex;
 }

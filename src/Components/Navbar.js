@@ -4,15 +4,11 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import image1 from "../Assets/Images/pic.png.png"
 
-
-
 function Navbar() {
   const { user, dispatch } = useContext(AuthContext)
   const handleLogout =()=>{
     dispatch({type:"LOGOUT"})
-  }
- 
- 
+  } 
   
   return (
     <div className="navbar">

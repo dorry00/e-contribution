@@ -8,15 +8,14 @@ import { useContext } from "react";
 import { AuthContext } from "./Context/AuthContext";
 import Dashboard from "./Pages/Dashboard";
 import Navbar from "./Components/Navbar";
-import CreateContribution from "./Components/CreateContribution";
+import CreateContribution from "./Components/CreateContribution/CreateContribution";
 import ViewallContributions from "./Components/ViewallContributions";
-import MakePayment from "./Components/MakePayment";
-
 import IndividualContribution from "./Components/IndividualContribution";
 import AccountDetails from "./Components/AccountDetails/AccountDetails";
-import VerifiedFundraisers from "./Components/VerifiedFundraisers";
 import Transactions from "./Components/Transactions/Transactions";
 import UpdateAccount from "./Components/UpdateAccount/UpdateAccount";
+import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
+import Footer from "./Components/Footer/Footer";
 function App() {
   const { user } = useContext(AuthContext);
 
@@ -48,23 +47,23 @@ function App() {
         <Route path="/accountDetails">
           <AccountDetails />
         </Route>
-        <Route path="/makeDonation">
-          <MakePayment />
-        </Route>
         <Route path="/dashboard">
           <Dashboard />
         </Route>
-        <Route path="/verified">
-          <VerifiedFundraisers />
-        </Route>
+        
         <Route path="/transactions">
           <Transactions/>
+          </Route>
+          <Route path="/admin">
+            <AdminDashboard/>
           </Route>
           <Route path="/updateAccount">
             <UpdateAccount/>
           </Route>
         <Route component={PageNotFound} />
+        
       </Switch>
+      <Footer/>
     </div>
   );
 }

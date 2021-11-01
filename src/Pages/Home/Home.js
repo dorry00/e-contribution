@@ -37,62 +37,47 @@ export default function Home() {
        
       </div>
 
-      <div className="section2">
-        <div className="container">
-          <div className="card">
-            <div className="circle">
-              <img src={image2} alt="" />
-            </div>
-            <div className="content">
-              <p>
-                John Doe
-                <br />
-                Location
-                <br />A brief description
-                <br />
-                <a href="#">
-                  <button>View</button>
-                </a>
-              </p>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="circle">
-              <img src={image3} alt="" />
-            </div>
-            <div className="content">
-              <p>
-                John Doe
-                <br />
-                Location
-                <br />A brief description
-                <br />
-                <a href="#">
-                  <button>View</button>
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="card">
-            <div className="circle">
-              <img src={image4} alt="" />
-            </div>
-            <div className="content">
-              <p>
-                John Doe
-                <br />
-                Locationr
-                <br />A brief description
-                <br />
-                <a href="#">
-                  <button>View</button>
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="heading">
+      <h1 className="testimonialHeading">What do users say?</h1>
+      <hr  className="hr"/>
       </div>
+
+
+
+     < div className="testimonials">
+       
+
+
+      
+        
+           
+           <div className="testimonialItem">
+           <p className="testimonialParagraph"><i className=" quote fas fa-quote-left"></i>Professional templates. Responsive, fully customizable with easy Drag-n-Drop Nicepage editor. Adjust colors, fonts, header and footer, layout and other design elements, as well as content and images.<i className=" quote fas fa-quote-right"></i></p>
+             <img alt="" src={landingPage} className="testimonialImage"/>
+             <p className="testimonialName">Rodah Reni</p>
+             <p className="testimonialDesignation">Doctor</p>
+           </div>
+         
+         
+           <div className="testimonialItem">
+           <p className="testimonialParagraph"> <i className="quote fas fa-quote-left"></i>Professional templates. Responsive, fully customizable with easy Drag-n-Drop Nicepage editor. Adjust colors, fonts, header and footer, layout and other design elements, as well as content and images.<i className="quote fas fa-quote-right"></i></p>
+             <img alt="" src={landingPage} className="testimonialImage"/>
+             <p className="testimonialName">Nadi Mulski</p>
+             <p className="testimonialDesignation">Software engineer</p>
+           </div>
+         
+         
+           <div className="testimonialItem">
+             <p className="testimonialParagraph"><i className=" quote fas fa-quote-left"></i>Professional templates. Responsive, fully customizable with easy Drag-n-Drop Nicepage editor. Adjust colors, fonts, header and footer, layout and other design elements, as well as content and images.<i className=" quote fas fa-quote-right"></i></p>
+             <img alt="" src={landingPage} className="testimonialImage"/>
+             <p className="testimonialName">Peter Jones</p>
+             <p className="testimonialDesignation">Accountant</p>
+           </div>
+         
+         
+
+       
+     </div>
 
       <div className="section4">
         <div>
@@ -111,7 +96,7 @@ export default function Home() {
         </p>
         <a href="#">Download on Google Play Store</a>
       </div>
-      <footer>
+      {/* <footer>
         <div className="row">
           <div className="col">
             <p>
@@ -167,7 +152,7 @@ export default function Home() {
         <p className="copyright">
           Msaada Foundation &copy 2021 - All Rights Reserved
         </p>
-      </footer>
+      </footer> */}
     </>
   );
 }
