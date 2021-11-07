@@ -3,24 +3,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap");
 body {
   /* background-attachment: fixed !important; */
-   margin: 0;
+  margin: 0;
   padding: 0;
   font-family: poppins, sans-serif;
   background: #fff2e6 !important;
-  overflow-x: scroll ; 
+  overflow-x: scroll;
   height: 100%;
-  
 }
-.registerWrapper{
+.registerWrapper {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
-
-  
 }
 .center {
-  
   margin: 20px;
   padding: 10px;
   overflow: hidden !important;
@@ -187,11 +183,11 @@ input[type="submit"]:hover {
 
 .sidebar {
   flex: 1;
-  position:sticky !important;
-   top: 50px;
-   overflow-x: hidden !important;
+  position: sticky !important;
+  top: 50px;
+  overflow-x: hidden !important;
   background-color: rgb(236, 236, 245);
-    height: 100vh;
+  height: 100vh;
 }
 
 .sidebarContainer {
@@ -220,24 +216,19 @@ input[type="submit"]:hover {
   background-color: rgb(198, 197, 199);
   color: #ffffff;
 }
-.sidebarIcon{
+.sidebarIcon {
   font-size: 16px !important;
   margin-right: 10px;
 }
 
-
 .contribuitionForm {
   background-color: #fff;
-  
+
   padding: auto;
   border: none;
   border-radius: 5px;
   width: 50%;
 }
-
-
-
-
 
 .formBtn {
   border: none;
@@ -251,7 +242,7 @@ input[type="submit"]:hover {
   margin-bottom: 30px;
 }
 
-.loginBtn{
+.loginBtn {
   border: none;
   background-color: teal;
   width: 200px;
@@ -261,15 +252,13 @@ input[type="submit"]:hover {
   cursor: pointer;
   padding: 7px 10px;
   margin-bottom: 30px;
-
 }
-.loginBtn:disabled{
- cursor:not-allowed
-
+.loginBtn:disabled {
+  cursor: not-allowed;
 }
 
 /* contributions */
-.contribution{
+.contribution {
   padding: 10px;
 }
 .contribution:after {
@@ -285,31 +274,30 @@ input[type="submit"]:hover {
   }
 }
 
-.contribuitionWrapper{
+.contribuitionWrapper {
   padding: 30px;
   background-color: #fff;
   border-radius: 5px;
   margin-left: 30px;
-  border:1px solid grey;
+  border: 1px solid grey;
   width: 380px;
   margin-top: 30px;
-  height: 450px;
+  height: 400px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   align-items: center;
 }
 
-.postTop{
+.postTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.topLeft{
+.topLeft {
   display: flex;
   align-items: center;
- 
 }
 
-.topLeft > .profileLogo{
+.topLeft > .profileLogo {
   width: 32px;
   height: 32px;
   margin-right: 5px;
@@ -318,152 +306,121 @@ input[type="submit"]:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.nameInfo{
+.nameInfo {
   display: flex;
   flex-direction: column;
 }
-.profileName{
+.profileName {
   font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 10px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
-.contributionTitle{
+.contributionTitle {
   font-size: 20px;
   margin-top: 30px;
   font-weight: 700;
-  
-
 }
-.contributionTitle::first-letter{
+.contributionTitle::first-letter {
   text-transform: capitalize;
-  
-
 }
-.creationInfo{
-display: flex;
-align-items: center;
-flex-direction: column;
-justify-content: stretch;
+.creationInfo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: stretch;
 }
-.profileName{
+.profileName {
   margin-bottom: 5px;
-
 }
-.contributionDate{
-font-size: 10px;
-font-style: italic;
-
+.contributionDate {
+  font-size: 10px;
+  font-style: italic;
 }
-.contributionDescription{
+.contributionDescription {
   font-size: 14px;
   margin-top: 15px;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 1;
   line-height: 24px;
   color: #444;
   overflow: hidden;
   text-align: start;
   -webkit-box-orient: vertical;
 }
-.targetAmount{
+.targetAmount {
   background-color: teal;
   margin-left: 20px;
   color: white;
   border-radius: 35px;
   padding: 5px;
   margin-top: 10px;
-
 }
 
-.editContribution{
+.editContribution {
   float: right;
   font-size: 16px;
-
 }
-.contributionIcon{
- margin-left: 10px;
- cursor: pointer;
- margin-bottom: 10px;
-
+.contributionIcon {
+  margin-left: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
-.contributionIcon:first-child{
+.contributionIcon:first-child {
   color: teal;
-
 }
-.contributionIcon:last-child{
-  color:tomato;
-
+.contributionIcon:last-child {
+  color: tomato;
 }
 
-.contributions{
-  
-  
-}
-.contributions>h1{
+.contributions > h1 {
   text-align: center;
-  color: #444;
-
+  color: teal;
+  font-size: 30px;
 }
 
-
-.AccountDetailsWrapper{
+.AccountDetailsWrapper {
   display: flex;
 }
-.accountDetails{
-  flex:4;
+.accountDetails {
+  flex: 4;
 }
-.individualContribution{
+.individualContribution {
   display: flex;
   flex-wrap: wrap;
   /* flex:4; */
   margin: 20px;
-
 }
-.amount{
+.amount {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
 }
-.header{
+.header {
   font-size: 18px;
   color: rgb(2, 2, 24);
-  
 }
-.needed>span{
+.needed > span {
   color: rgb(121, 120, 120);
   font-weight: bold;
   text-transform: capitalize;
-
 }
-.raised>span{
+.raised > span {
   color: rgb(121, 120, 120);
   font-weight: bold;
   text-transform: capitalize;
+}
 
+.viewBtn:hover {
+  background-color: rgb(200, 218, 218);
 }
-.viewBtn{
-  width: 50%;
-  background:teal;
-  padding: 10px;
-  color: aliceblue;
-  margin-top: 50px;
-  cursor:pointer;
-  border-radius: 10px;
-}
-.viewBtn:hover{
- background-color: rgb(200, 218, 218);
-}
-.hr{
-  
-    border: 0;
-    border-top: 3px solid rgb(60, 78, 78);
-    margin: 20px 0;
-    width: 50px;
-    height: 2px;
-    margin: auto;
-  
+.hr {
+  border: 0;
+  border-top: 3px solid rgb(60, 78, 78);
+  margin: 20px 0;
+  width: 50px;
+  height: 2px;
+  margin: auto;
 }

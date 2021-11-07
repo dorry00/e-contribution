@@ -1,34 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import "../Components/IndividualContribution/IndividualContribution.css"
 import MakePaymentPage from "./MakePaymentPage/MakePaymentPage";
 import {
   EmailShareButton,
   FacebookShareButton, 
-  PinterestShareButton,
-  RedditShareButton,
   TelegramShareButton,
-  TumblrShareButton,
   TwitterShareButton,
   WhatsappShareButton,
-  WorkplaceShareButton
+  
 } from "react-share";
 import {
   EmailIcon,
   FacebookIcon,
-  FacebookMessengerIcon,
-  PinterestIcon,
-
-  RedditIcon,
-  TelegramIcon,
-  TumblrIcon,
+  TelegramIcon,  
   TwitterIcon,
-
   WhatsappIcon,
-  WorkplaceIcon
-} from "react-share";
+  } from "react-share";
 
 function IndividualContribution() {
   const location = useLocation();
@@ -40,6 +29,8 @@ function IndividualContribution() {
   const [paymentoption, setPaymentOption] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const [openPaymentModal, setopenPaymentModal] = useState();
+  const[deleteMode,setDeleteMode]=useState(false);
+  const[loading,setLoading] =useState(false)
 
   // fetch a single post
   useEffect(() => {
@@ -62,13 +53,15 @@ function IndividualContribution() {
   // delete a single contribution
   const handleDelete = async (e) => {
     e.preventDefault()
+    setLoading(false)
     let id = { id: path };
     try {
       const res = await axios.post(
         "https://msaadaproject.herokuapp.com/api/delete/contribution",
         id
       );
-      console.log(res.data);
+      setLoading(true)
+      console.log(res.data.response)
       res.data && window.location.replace("/contributions");
     } catch (err) {
       console.log(err);
@@ -153,6 +146,8 @@ function IndividualContribution() {
           <div className="dollars-per-mile">{targetAmount} /= needed</div>
         </div>
         </div>
+
+
         
 
         
@@ -186,6 +181,7 @@ function IndividualContribution() {
                 value={paymentoption}
                 onChange={(e) => setPaymentOption(e.target.value)}
               />
+            
               </div>
               <div className="textareas">
               <label>Description</label>
@@ -196,12 +192,22 @@ function IndividualContribution() {
                 onChange={(e) => setDescription(e.target.value)}
               />
               </div>
+              
+             
               </div>
-              <div className="editBtns">
-              <button onClick={()=>setUpdateMode(false)} className="cancelButton">cancel</button>
+             
+              
+                  
+
+              
+            </form>
+            <div className="editBtns">
+              <button onClick={()=>setUpdateMode(false)}  className="cancelButton">cancel update</button>
               <button type="submit" onClick={handleUpdate} className="editBtn">Edit</button>
               </div>
-            </form>
+
+            
+            
 </div>
           </div>
           
@@ -213,10 +219,32 @@ function IndividualContribution() {
             ></i>
             <i
               className=" contributionIcon fas fa-trash-alt"
-              onClick={handleDelete}
+              onClick={(e)=>{setDeleteMode(true)}}
             ></i>
           </div>
         )}
+
+        {
+          deleteMode && (<div className="deleteBackground">
+            
+            <div className="deleteContainer">
+              <h1 className="deleteHeader">Delete contribution?</h1>
+              <p>Are you sure you want to delete "<b>{contribution.title}"</b>?</p>
+              <p>You can't undo this action</p>
+              <div className="warning">
+              <i className="fas fa-exclamation-triangle"></i> warning
+
+              <p>Deleting this contribution is <b>irreversible</b> and you cannot recover it once the action is done. Are you sure you want to do this?</p>
+              </div>
+            <div className="editBtns">
+              <button onClick={()=>setDeleteMode(false)}  className="editBtn">cancel delete</button>
+              <button type="submit" onClick={handleDelete} className="cancelButton">{loading && "Deleting"}{!loading && "Delete anyway"}</button>
+              </div>
+              
+            </div>
+            
+            </div>)
+        }
     
       
     </div>

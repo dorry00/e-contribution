@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault();
     LoginCall({ email, password }, dispatch);
     console.log(user);
-    user && window.location.replace("/contributions");
+    user && window.location.replace("/createContribution");
   }
   return (
     <div className="registerWrapper">
@@ -45,9 +45,7 @@ export default function Login() {
         {error && (
           <span className="error-message">*wrong login credentials</span>
         )}
-        <div className="pass">
-          <a href="#">Forgot password?</a>
-        </div>
+       
         <button
           className="loginBtn"
           type="submit"

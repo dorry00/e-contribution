@@ -5,6 +5,10 @@
     background-color: teal;
     
 }
+.search:focus{
+    outline: none;
+    
+}
 .search{
     background:white;
     height: 35px;
@@ -15,5 +19,10 @@
     cursor:pointer;
 }
 .searchWrapper{
-    float:right;
+    display: flex;
+    align-items:center;
+    margin-top: 20px;
+    margin-left: 20px;
+  
+ 
 }

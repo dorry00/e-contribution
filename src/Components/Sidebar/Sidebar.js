@@ -29,7 +29,7 @@ function Sidebar() {
               <span>
                 <i className="sidebarIcon fas fa-history"></i>
               </span>
-              My Transactions
+              My Donations
             </li>
             </Link>
 
@@ -41,13 +41,13 @@ function Sidebar() {
                 Account Details
               </li>
             </Link>
-            <Link  to="/updateAccount" className="link">
+            <Link  to="/myContributions" className="link">
 
             <li className="sidebarListItem">
               <span>
                 <i className="sidebarIcon fas fa-user-edit"></i>
               </span>
-              Update Account
+              My Contributions
             </li>
             </Link>
 

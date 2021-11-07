@@ -17,9 +17,7 @@ export default function ViewallContributions() {
         "https://msaadaproject.herokuapp.com/api/verified/contribution"
       );
       setContributions(response.data.response);
-      // console.log(contributions)
-      // let contributions = contributions.filter(contribution.title)
-      setLoading(false);
+       setLoading(false);
     };
 
     fetchContributions();
@@ -33,11 +31,9 @@ export default function ViewallContributions() {
         
         <div className="contributions">
           
-          <Search/>
-          
-          <h1 className="contributionHeader">Verified contributions</h1>
-          <hr className="hr"/>
-         
+          <Search/>          
+          <h1>Verified contributions</h1>
+          <hr className="hr"/>         
           {loading && <Loading/>}
           <SingleContribution contributions={contributions} />
         

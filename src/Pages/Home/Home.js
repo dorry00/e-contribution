@@ -1,5 +1,5 @@
-import React from "react";
 import "./home.css";
+import { Link } from "react-router-dom";
 import image2 from "../../Assets/Images/profile.svg";
 import image3 from "../../Assets/Images/profile.svg";
 import image4 from "../../Assets/Images/profile.svg";
@@ -26,7 +26,9 @@ export default function Home() {
           you.
         </p>
         <button className="landingBtn">
+          <Link to="/register" className="link">
           Get Started
+          </Link>
 
         </button>
 
@@ -36,6 +38,42 @@ export default function Home() {
           </div>
        
       </div>
+       <div className="heading">
+      <h1 className="testimonialHeading">How does it work?</h1>
+      <hr  className="hr"/>
+      </div>
+
+
+
+<div className="howItWorks">
+  <div className="howItWorksItem">
+    <div className="icon">
+  <i className=" homeIcon fas fa-user-plus"></i>
+  </div>
+  <h2 className="howItWorksHeading">Create an account</h2>
+  <p>Simply create an account using your name , phone number ,email and password and log in!</p>
+  </div>
+  <div className="howItWorksItem">
+    <div className="icon">
+  <i className=" homeIcon fas fa-hand-point-right"></i>
+  </div>
+  <h2 className="howItWorksHeading">Create a contribution</h2>
+  <p>Choose a suitable title and description, and of course don't forget the target amount you wish to raise!</p>
+  </div>
+  <div className="howItWorksItem">
+    <div>
+   <i className=" homeIcon fas fa-share-alt-square"></i>
+   </div>
+  <h2 className="howItWorksHeading">Spread the word</h2>
+  <p>Voila, you made it! Now just share your contribution to family and friends using your favorite social platforms!</p>
+  </div>
+
+</div>
+
+
+
+
+
 
       <div className="heading">
       <h1 className="testimonialHeading">What do users say?</h1>
@@ -45,13 +83,8 @@ export default function Home() {
 
 
      < div className="testimonials">
-       
-
-
-      
-        
-           
-           <div className="testimonialItem">
+             
+            <div className="testimonialItem">
            <p className="testimonialParagraph"><i className=" quote fas fa-quote-left"></i>Professional templates. Responsive, fully customizable with easy Drag-n-Drop Nicepage editor. Adjust colors, fonts, header and footer, layout and other design elements, as well as content and images.<i className=" quote fas fa-quote-right"></i></p>
              <img alt="" src={landingPage} className="testimonialImage"/>
              <p className="testimonialName">Rodah Reni</p>
@@ -96,63 +129,8 @@ export default function Home() {
         </p>
         <a href="#">Download on Google Play Store</a>
       </div>
-      {/* <footer>
-        <div className="row">
-          <div className="col">
-            <p>
-              Msaada foundation is aimed at allowing people to raise money for
-              events ranging from diverse catastrophes and providing a caring
-              experience.
-              <div>
-                <img className="pic1" src={image5} alt="" />
-              </div>
-            </p>
-          </div>
-          <div className="col">
-            <h3>Office</h3>
-            <p>Nyahururu, Kenya</p>
-            <p>Nyahururu Town</p>
-            <p className="email-id">msaadafoundation@gmail.com</p>
-            <h4>+254-12345678</h4>
-          </div>
-          <div className="col">
-            <h3>Links</h3>
-            <ul>
-              <li>
-                <a href="">Home</a>
-              </li>
 
-              <li>
-                <a href="">About Us</a>
-              </li>
-
-              <li>
-                <a href="">Contacts</a>
-              </li>
-            </ul>
-          </div>
-          <div className="col">
-            <h3>Newsletter</h3>
-            <form className="home-form">
-              <i className="fa fa-envelope"></i>
-              <input type="email" placeholder="Enter your email id" required />
-              <button type="submit">
-                <i className="fas fa-long-arrow-alt-right"></i>
-              </button>
-            </form>
-            <div className="social-icons">
-              <i className="fab fa-facebook"></i>
-              <i className="fab fa-twitter"></i>
-              <i className="fab fa-whatsapp"></i>
-              <i className="fab fa-pinterest"></i>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <p className="copyright">
-          Msaada Foundation &copy 2021 - All Rights Reserved
-        </p>
-      </footer> */}
+     
     </>
   );
 }

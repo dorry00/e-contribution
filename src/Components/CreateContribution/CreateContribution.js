@@ -15,8 +15,9 @@ function CreateContribution() {
   
 
   async function handleCreateContribution(e) {
-      setLoading(true)
     e.preventDefault();
+    setErrors([])
+    setLoading(true)
     let contributionDetails = {
       title,
       description,
@@ -31,6 +32,10 @@ function CreateContribution() {
       )
       .then(function (response) {
         console.log(response.data);
+        if(response.data.error){
+        setErrors(response.data.error)
+        }
+     
         setLoading(false)
 
         if (response.data.success === true) {
@@ -57,30 +62,30 @@ function CreateContribution() {
         <h1 className="formTitle">Create A Contribution</h1>
       <form className="formInputs" > 
       
+      
           
 
         <div className="inputs">
-            
-          <label htmlFor="title" className="label">
-            contribution title:
-          </label>
+       
+        <span className="errorMessage">{errors.title}</span>
+         
+          
           <input
+         
             type="text"
-            placeholder="Enter title..."
+            placeholder="Enter a contribution title..."
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             title="title"
             className="input"
             autoComplete="true"
           />
-          <span className="errorMessage">{errors.title}</span>
-          
-          <label htmlFor="psw">
-            target amount
-          </label>
+          <span className="errorMessage">{errors.targetAmount}</span>
+         
+         
           <input
             type="text"
-            placeholder="Enter target amount..."
+            placeholder="Enter a target amount..."
             value={targetAmount}
             onChange={(e) => setTargetAmount(e.target.value)}
             name="targetamount"
@@ -88,12 +93,9 @@ function CreateContribution() {
             className="input"
             autoComplete="true"
           />
-          <span>{errors.targetamount}</span>
+          <span className="errorMessage">{errors.paymentoption}</span>
           
-        <label htmlFor="paymentoption">
-         payment Option
-        </label>
-        <input
+           <input
           type="paymentOption"
           placeholder=" paymentOption"
           name="psw"
@@ -103,7 +105,7 @@ function CreateContribution() {
           className="input"
           autoComplete="true"
         />
-        <span>{errors.paymentoption}</span>
+       
 
         </div>   
         
@@ -114,22 +116,19 @@ function CreateContribution() {
         
         
         <div className="textareas">
-          <label htmlFor="description">
-           description
-          </label>
+        <span className="errorMessage">{errors.description}</span>
           <textarea
             type="text"
             id="description"
             className="textarea"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-            placeholder="Enter description"
+           placeholder="Enter a description for your contribution... "
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             name="description"
             required
             autoComplete="true"
           />
-          <span className="errorMessage">{errors.description}</span>
+         
         </div>
         
 

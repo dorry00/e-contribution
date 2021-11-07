@@ -31,6 +31,14 @@ function Sidebar() {
               My Transactions
             </li>
             </Link>
+            <Link className="link" to ="/myContributions">
+            <li className="sidebarListItem">
+              <span>
+                <i className="sidebarIcon fas fa-history"></i>
+              </span>
+             My Contributions
+            </li>
+            </Link>
 
             <Link to="/accountDetails" className="link">
               <li className="sidebarListItem">

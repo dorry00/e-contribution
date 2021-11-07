@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login/Login";
@@ -16,6 +16,8 @@ import Transactions from "./Components/Transactions/Transactions";
 import UpdateAccount from "./Components/UpdateAccount/UpdateAccount";
 import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
 import Footer from "./Components/Footer/Footer";
+import AllCompletedTransactions from "./Components/AllCompletedTransactions/AllCompletedTransactions";
+import PendingTransactions from "./Components/PendingTransactions/PendingTransactions";
 function App() {
   const { user } = useContext(AuthContext);
 
@@ -26,8 +28,9 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
+
         {/* {user ? <Dashboard /> : <Login />} */}
-        {/* <Register exact path="/register" component={Register} /> */}
+       
         {/* <Route path="/login">{user ? <Redirect to="/dashboard" /> : <Login />}</Route> */}
         <Route path="/contribution/:contributionId">
           <IndividualContribution />
@@ -50,7 +53,12 @@ function App() {
         <Route path="/dashboard">
           <Dashboard />
         </Route>
-        
+        <Route path ="/alltransactions">
+        <AllCompletedTransactions/>
+        </Route>
+        <Route path="/pending transactions">
+        <PendingTransactions/>
+        </Route>        
         <Route path="/transactions">
           <Transactions/>
           </Route>

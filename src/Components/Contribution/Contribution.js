@@ -1,20 +1,30 @@
-import React,{useContext} from "react";
+import React,{useContext,useState,useEffect} from "react";
 import "./Contribution.css";
 import axios from "axios"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
-import { getDefaultNormalizer } from "@testing-library/react";
 
-
-function Contribution({ contribution,isAdmin }) {
+function Contribution({ contribution}) {
   const {user} = useContext(AuthContext);
-  let admin =true;
-  // if(user.email === "working@gmail.com"){
-  //   return admin === true
-  // }
+  const [admin, setAdmin]=useState(false)
+  const [loading,setLoading]= useState(false)
+  const[verified,setVerified ] =useState(false)
+  
+ 
+  useEffect(() => {
+     if(user.email === "admin@msaada.com"){
+    setAdmin(true)
+  }
+  if(contribution.verified === "1"){
+    setVerified(true)
+  }
+    
+    
+  }, [user.email,contribution.verified])
 
   const handleVerify = async (e) => {
     e.preventDefault();
+    setLoading(true)
     
     let updatedDetails = {
       id: contribution.id,
@@ -27,6 +37,7 @@ function Contribution({ contribution,isAdmin }) {
     await axios.post(
       "https://msaadaproject.herokuapp.com/api/update/contribution", updatedDetails
     );
+    setLoading(false)
     window.location.reload()
     
   };
@@ -51,7 +62,7 @@ function Contribution({ contribution,isAdmin }) {
           </div>
 
           <div className="topRight">
-            <i className="fas fa-ellipsis-v"></i>
+           {verified && "verified"}
           </div>
         </div>
 
@@ -73,10 +84,16 @@ function Contribution({ contribution,isAdmin }) {
             <span className="headerSpan">needed</span>
           </div>
         </div>
+        <div className="contributionBtns">
         <Link to={`/contribution/${contribution.id}`} className="link">
-        <button className="viewBtn">view contribution</button>
-        <button onClick={handleVerify}>{admin && "verify"}</button>
+        <button className="viewBtn">view donation</button>
         </Link>
+        {
+          (admin && !verified) && 
+        <button className="verify" onClick={handleVerify}>{loading && "verifying"} {!loading && "verify donation"}</button>
+        }
+        </div>
+       
       </div>
     </div>
   );
