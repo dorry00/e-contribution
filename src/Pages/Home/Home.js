@@ -1,9 +1,5 @@
 import "./home.css";
 import { Link } from "react-router-dom";
-import image2 from "../../Assets/Images/profile.svg";
-import image3 from "../../Assets/Images/profile.svg";
-import image4 from "../../Assets/Images/profile.svg";
-import image5 from "../../Assets/Images/pic.png.png";
 import landingPage from "../../Assets/Images/landingPage.png"
 
 
@@ -103,6 +99,7 @@ export default function Home() {
            <div className="testimonialItem">
              <p className="testimonialParagraph"><i className=" quote fas fa-quote-left"></i>Professional templates. Responsive, fully customizable with easy Drag-n-Drop Nicepage editor. Adjust colors, fonts, header and footer, layout and other design elements, as well as content and images.<i className=" quote fas fa-quote-right"></i></p>
              <img alt="" src={landingPage} className="testimonialImage"/>
+             
              <p className="testimonialName">Peter Jones</p>
              <p className="testimonialDesignation">Accountant</p>
            </div>

@@ -19,6 +19,8 @@ import {
   WhatsappIcon,
   } from "react-share";
 
+
+
 function IndividualContribution() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
@@ -99,33 +101,34 @@ function IndividualContribution() {
         <button type="submit" className="paymentButton" onClick={() => setopenPaymentModal(true)}>Donate</button>
 
         <div className="socialIcons">
+           
 
-          <FacebookShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
-          quote={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
+          <FacebookShareButton url ="https://msaada-app.netlify.app/contribution"
+                    quote={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
           hashtag={"Helpingiscaring"}>
           <FacebookIcon className="socialIcon" round={true}></FacebookIcon>
           </FacebookShareButton>
 
-          <WhatsappShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+          <WhatsappShareButton url ="https://msaada-app.netlify.app/contribution"
           separator={""}
           title ={"Hello friend I just donated towards this contribution,help us reach the goal by donating too !"}>
           <WhatsappIcon round={true} className="socialIcon"></WhatsappIcon>
           </WhatsappShareButton>
 
-          <TelegramShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+          <TelegramShareButton url ="https://msaada-app.netlify.app/contribution"
           title ={"Hello friend I just donated towards this contribution,help us reach the goal by donating too !"}> 
             <TelegramIcon round={true} className="socialIcon">
             </TelegramIcon>
            </TelegramShareButton>
 
-           <TwitterShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+           <TwitterShareButton url ="https://msaada-app.netlify.app/contribution"
             hashtags = {["Helpingiscaring"]} 
            title ={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
           ><TwitterIcon round={true} className="socialIcon">
            </TwitterIcon>
            </TwitterShareButton>
 
-           <EmailShareButton url ="https://stackoverflow.com/questions/67728350/parameter-href-should-represent-a-valid-url"
+           <EmailShareButton url ="https://msaada-app.netlify.app/contribution"
           hashtags = {["Helpingiscaring"]}
           subject={"Donation to a msaada app contribution"}
           separator={""} 

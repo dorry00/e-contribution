@@ -4,7 +4,7 @@ import Home from "./Pages/Home/Home";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login/Login";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
-import { useContext } from "react";
+import { useContext, useState, useEffect} from "react";
 import { AuthContext } from "./Context/AuthContext";
 import Dashboard from "./Pages/Dashboard";
 import Navbar from "./Components/Navbar";
@@ -20,7 +20,21 @@ import AllCompletedTransactions from "./Components/AllCompletedTransactions/AllC
 import PendingTransactions from "./Components/PendingTransactions/PendingTransactions";
 function App() {
   const { user } = useContext(AuthContext);
+  const[ admin, setAdmin ]= useState(false);
+  useEffect(() => {
+    if(user){
 
+  if(user.email === "admin@msaada.com"){
+    setAdmin(true)
+  }
+  else{
+    setAdmin(false)
+  }
+  }
+
+  
+  }, [user])
+  
   return (
     <div className="App">
       <Navbar />
@@ -28,10 +42,6 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-
-        {/* {user ? <Dashboard /> : <Login />} */}
-       
-        {/* <Route path="/login">{user ? <Redirect to="/dashboard" /> : <Login />}</Route> */}
         <Route path="/contribution/:contributionId">
           <IndividualContribution />
         </Route>
@@ -39,34 +49,35 @@ function App() {
           <Register />
         </Route>
         <Route path="/login">
-          <Login />
+        <Login/>
+          {user?<Dashboard/>:<Login/>}
         </Route>
         <Route path="/contributions">
           <ViewallContributions />
         </Route>
         <Route path="/createContribution">
-          <CreateContribution />
+        {user?<CreateContribution/>:<Login/>}
         </Route>
         <Route path="/accountDetails">
-          <AccountDetails />
-        </Route>
+        {user?<AccountDetails />:<Login/>}
+          </Route>
         <Route path="/dashboard">
           <Dashboard />
         </Route>
         <Route path ="/alltransactions">
-        <AllCompletedTransactions/>
+          {admin?<AllCompletedTransactions/>:<Login/>}
         </Route>
         <Route path="/pending transactions">
-        <PendingTransactions/>
+        {admin?<PendingTransactions/>:<Login/>}
         </Route>        
         <Route path="/transactions">
-          <Transactions/>
+         {user? <Transactions/>:<Login/>}
           </Route>
           <Route path="/admin">
-            <AdminDashboard/>
+              {admin?<AdminDashboard/>:<Login/>}
           </Route>
-          <Route path="/updateAccount">
-            <UpdateAccount/>
+          <Route>
+             {user?<UpdateAccount/>:<Login/>}
           </Route>
         <Route component={PageNotFound} />
         

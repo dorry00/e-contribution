@@ -6,21 +6,27 @@ import { AuthContext } from "../../Context/AuthContext";
 
 function Contribution({ contribution}) {
   const {user} = useContext(AuthContext);
-  const [admin, setAdmin]=useState(false)
+  const [admin, setAdmin]=useState()
   const [loading,setLoading]= useState(false)
   const[verified,setVerified ] =useState(false)
   
  
   useEffect(() => {
-     if(user.email === "admin@msaada.com"){
-    setAdmin(true)
-  }
-  if(contribution.verified === "1"){
-    setVerified(true)
-  }
+    if(user){
+
+           if(user.email === "admin@msaada.com"){
+        setAdmin(true)
+      }else{
+        setAdmin(false)
+      }
+    }
+
+
+ 
+ 
     
     
-  }, [user.email,contribution.verified])
+  }, [user])
 
   const handleVerify = async (e) => {
     e.preventDefault();
@@ -34,13 +40,19 @@ function Contribution({ contribution}) {
       paymentoption: contribution.paymentoption,
       verified: 1,
     }
-    await axios.post(
+    const res = await axios.post(
       "https://msaadaproject.herokuapp.com/api/update/contribution", updatedDetails
     );
     setLoading(false)
     window.location.reload()
     
   };
+  
+ 
+
+
+ 
+ 
 
   return (
     <div className="contribution">

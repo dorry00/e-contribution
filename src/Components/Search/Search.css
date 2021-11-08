@@ -1,8 +1,9 @@
 .searchBtn{
     width: 100px;
     height: 35px;
-    border-radius: 10px;
     background-color: teal;
+    border: none;
+    cursor: pointer;
     
 }
 .search:focus{
@@ -15,7 +16,6 @@
     border: none;
     padding: 10px;
     color: black;
-    border-radius: 10px;
     cursor:pointer;
 }
 .searchWrapper{
@@ -23,6 +23,4 @@
     align-items:center;
     margin-top: 20px;
     margin-left: 20px;
-  
- 
 }

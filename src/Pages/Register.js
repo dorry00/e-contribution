@@ -8,18 +8,20 @@ function Register() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   //register a user
   async function RegisterUser(e) {
     e.preventDefault();
     setErrors([]);
+    setLoading(true)
     let userDetails = { name, email, phone, password };
 
     axios
       .post("https://msaadaproject.herokuapp.com/api/register", userDetails)
       .then(function (response) {
-        console.log(response.data);
         response.data.success && window.location.replace("/login");
+        setLoading(false)
         !response.data.success && setErrors(response.data.error);
       })
 
@@ -79,11 +81,11 @@ function Register() {
 
             <label>Password</label>
           </div>
-          <input
-            type="submit"
+          <button type="submit" disabled={loading}
             onClick={RegisterUser}
-            value="Sign Up to Msaada App"
-          />
+            className="loginBtn"
+           
+          >{loading && "processing"} {!loading && "Sign up"}</button>
           <div className="signup_link">
             Have an account?
             <Link className="link" to="/login">
