@@ -40,10 +40,11 @@ function Contribution({ contribution}) {
       paymentoption: contribution.paymentoption,
       verified: 1,
     }
-    const res = await axios.post(
+     await axios.post(
       "https://msaadaproject.herokuapp.com/api/update/contribution", updatedDetails
     );
     setLoading(false)
+    setVerified(true)
     window.location.reload()
     
   };

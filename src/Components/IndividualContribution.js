@@ -35,6 +35,7 @@ function IndividualContribution() {
   const[loading,setLoading] =useState(false)
 
   // fetch a single post
+  // const id = path
   useEffect(() => {
     let id = { id: path };
     const getContribution = async () => {

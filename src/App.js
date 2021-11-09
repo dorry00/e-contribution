@@ -49,7 +49,6 @@ function App() {
           <Register />
         </Route>
         <Route path="/login">
-        <Login/>
           {user?<Dashboard/>:<Login/>}
         </Route>
         <Route path="/contributions">
