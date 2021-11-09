@@ -1,6 +1,9 @@
 import "./home.css";
 import { Link } from "react-router-dom";
 import landingPage from "../../Assets/Images/landingPage.png"
+import Image1 from "../../Assets/Images/prince-akachi-i2hoD-C2RUA-unsplash.jpg"
+import Image2 from "../../Assets/Images/good-faces-QDRCvXpP18U-unsplash.jpg"
+import Image3 from "../../Assets/Images/elizeu-dias-2EGNqazbAMk-unsplash.jpg"
 
 
 
@@ -81,24 +84,24 @@ export default function Home() {
      < div className="testimonials">
              
             <div className="testimonialItem">
-           <p className="testimonialParagraph"><i className=" quote fas fa-quote-left"></i>Professional templates. Responsive, fully customizable with easy Drag-n-Drop Nicepage editor. Adjust colors, fonts, header and footer, layout and other design elements, as well as content and images.<i className=" quote fas fa-quote-right"></i></p>
-             <img alt="" src={landingPage} className="testimonialImage"/>
+           <p className="testimonialParagraph"><i className=" quote fas fa-quote-left"></i> if you are looking for a platform to help you raise your funds safely and at no fee then obviously Msaada app is the place. This is a platform with the art of giving at the heart of the developers.<i className=" quote fas fa-quote-right"></i></p>
+             <img alt="" src={Image1} className="testimonialImage"/>
              <p className="testimonialName">Rodah Reni</p>
              <p className="testimonialDesignation">Doctor</p>
            </div>
          
          
            <div className="testimonialItem">
-           <p className="testimonialParagraph"> <i className="quote fas fa-quote-left"></i>Professional templates. Responsive, fully customizable with easy Drag-n-Drop Nicepage editor. Adjust colors, fonts, header and footer, layout and other design elements, as well as content and images.<i className="quote fas fa-quote-right"></i></p>
-             <img alt="" src={landingPage} className="testimonialImage"/>
+           <p className="testimonialParagraph"> <i className="quote fas fa-quote-left"></i> I created a fundraiser on Msaada app in very few step compared to other fundraising platforms. The experience was quite awesome .<i className="quote fas fa-quote-right"></i></p>
+             <img alt="" src={Image2} className="testimonialImage"/>
              <p className="testimonialName">Nadi Mulski</p>
              <p className="testimonialDesignation">Software engineer</p>
            </div>
          
          
            <div className="testimonialItem">
-             <p className="testimonialParagraph"><i className=" quote fas fa-quote-left"></i>Professional templates. Responsive, fully customizable with easy Drag-n-Drop Nicepage editor. Adjust colors, fonts, header and footer, layout and other design elements, as well as content and images.<i className=" quote fas fa-quote-right"></i></p>
-             <img alt="" src={landingPage} className="testimonialImage"/>
+             <p className="testimonialParagraph"><i className=" quote fas fa-quote-left"></i> Using Msaada app was simple and fast, there are no hidden costs whatsoever .This is has taken online fundraising to a whole new level.<i className=" quote fas fa-quote-right"></i></p>
+             <img alt="" src={Image3} className="testimonialImage"/>
              
              <p className="testimonialName">Peter Jones</p>
              <p className="testimonialDesignation">Accountant</p>
@@ -110,21 +113,31 @@ export default function Home() {
      </div>
 
       <div className="section4">
-        <div>
+        <div className="sectionDiv">
           <img
             alt=""
+            className="secImage"
             src="https://www.bbva.com/wp-content/uploads/2017/08/movil-smartphones-clientes-apps-usuarios-tecnologia-recurso-BBVA-e1514912389593-1024x685.jpg"
           />
         </div>
-        <h2>AVAILABLE NOW</h2>
 
-        <h1>The Msaada App</h1>
-        <p>
-          Start and manage fundraisers, interact with <br />
-          supporters, and learn about important causes
-          <br /> while on the go.
-        </p>
-        <a href="#">Download on Google Play Store</a>
+        <div className="googlePlay">
+        <h1 className="googlePlayHeader">Download It Now</h1>
+        <hr className="hr"/>
+
+         <h2 className="MsaadaHeader">The Msaada App</h2>
+<p className="googlePlayParagraph">
+  Start and manage fundraisers, interact with <br />
+  supporters, and learn about important causes
+  <br /> while on the go and at the cormfort of your phone.
+</p>
+<button className="googleButton">
+<i className="fab fa-google-play"></i>
+  Download on Google Play store 
+</button>
+        </div>
+
+       
       </div>
 
      
