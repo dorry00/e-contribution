@@ -89,10 +89,10 @@ function Navbar() {
               user && (<li className="nav-item">
               <NavLink
                 exact
-                to="/login"
+                to="/"
                 activeClassName="active"
                 className="nav-links"
-                onClick={handleClick}
+                onClick={handleLogout}
                  >
                
               Log out
