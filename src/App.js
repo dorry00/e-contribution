@@ -50,7 +50,7 @@ function App() {
           <Register />
         </Route>
         <Route path="/login">
-          {user?<Dashboard/>:<Login/>}
+          {user?<UserDashBoard/>:<Login/>}
         </Route>
         <Route path="/contributions">
           <ViewallContributions />
@@ -78,9 +78,9 @@ function App() {
             {user?<UserDashBoard/>:<Login/>}
             
             </Route>
-          <Route>
+          {/* <Route>
              {user?<UpdateAccount/>:<Login/>}
-          </Route>
+          </Route> */}
         <Route component={PageNotFound} />
         
       </Switch>

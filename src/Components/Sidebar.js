@@ -15,14 +15,7 @@ function Sidebar() {
                 View Contributions
               </li>
             </Link>
-            <Link to="/createContribution" className="link">
-              <li className="sidebarListItem">
-                <span>
-                  <i className=" sidebarIcon fas fa-donate"></i>
-                </span>
-                Create Contribution
-              </li>
-            </Link>
+            
             <Link className="link" to ="/transactions">
             <li className="sidebarListItem">
               <span>
