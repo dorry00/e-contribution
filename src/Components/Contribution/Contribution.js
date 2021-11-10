@@ -8,7 +8,7 @@ function Contribution({ contribution}) {
   const {user} = useContext(AuthContext);
   const [admin, setAdmin]=useState()
   const [loading,setLoading]= useState(false)
-  const[verified,setVerified ] =useState(false)
+  const[verified,setVerified ] = useState(false)
   
  
   useEffect(() => {
@@ -31,6 +31,7 @@ function Contribution({ contribution}) {
   const handleVerify = async (e) => {
     e.preventDefault();
     setLoading(true)
+    setVerified(false)
     
     let updatedDetails = {
       id: contribution.id,
@@ -63,10 +64,9 @@ function Contribution({ contribution}) {
             <i className=" profileLogo fas fa-user"></i>
             <div className="nameInfo">
               <span className="profileName">
-                <Link className="link" to={`/dashboard/accountDetails/`}>
-                  
+                            
                   Dorry Elmah
-                </Link>
+               
               </span>
               <span className="contributionDate">
                 {new Date(contribution.created_at).toDateString()}
@@ -103,7 +103,7 @@ function Contribution({ contribution}) {
         </Link>
         {
           (admin && !verified) && 
-        <button className="verify" onClick={handleVerify}>{loading && "verifying"} {!loading && "verify donation"}</button>
+        <button className="verify" onClick={handleVerify}>{loading && "verifying"} {(verified && !loading) && "verified"}{!loading  && "verified"}</button>
         }
         </div>
        
