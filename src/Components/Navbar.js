@@ -55,6 +55,7 @@ function Navbar() {
                 Create Contribution
               </NavLink>
             </li>
+            {!user &&
             <li className="nav-item">
               <NavLink
                 exact
@@ -66,6 +67,7 @@ function Navbar() {
                 Sign up 
               </NavLink>
             </li>
+            }
 
 
             {

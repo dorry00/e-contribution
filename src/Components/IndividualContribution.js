@@ -163,8 +163,8 @@ function IndividualContribution() {
 
       <div >
         <div className="amount-raised-container">
-          <div className="amount-raised"><span className="amount-text">{targetAmount} /=</span> raised </div>
-          <div className="dollars-per-mile">{targetAmount} /= needed</div>
+          <div className="amount-raised"><span className="amount-text">{contribution.targetAmount} /=</span> raised </div>
+          <div className="dollars-per-mile">{contribution.amount} /= needed</div>
         </div>
         </div>
 

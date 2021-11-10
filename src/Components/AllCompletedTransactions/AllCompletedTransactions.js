@@ -5,7 +5,6 @@ import Loading from '../Loading/Loading';
 import OpenDropDown from '../AdminDashboard/OpenDropDown';
 import ReactPaginate from  "react-paginate"
 
-
 function AllCompletedTransactions() {
      const [loading, setLoading] = useState(true);
     const [transactions, setTransactions] = useState([]);
@@ -16,12 +15,9 @@ function AllCompletedTransactions() {
       const fetchTransactions = async () => {
         setLoading(true);
         const response = await axios.get(
-          "https://msaadaproject.herokuapp.com/api/completed/transactions"
+          "https://msaadaproject.herokuapp.com/api/pending/transactions"
         );
         setTransactions(response.data.response);
-        
-             
-        
         setLoading(false);
       };
     
@@ -33,11 +29,12 @@ function AllCompletedTransactions() {
     const displayTransactions = transactions.slice(pagesVisited, pagesVisited + transactionsPerPage).map(transaction=>{
         return(
         <tr key={transaction.id}>
-            <td> {transaction.id}</td>
-            <td> {transaction.PhoneNumber}</td>
-            <td>{transaction.Amount}</td>
+          <td>{transaction.id}</td>
+            <td> {transaction.CheckoutRequestID}</td>
+            <td> {transaction.phone}</td>
+            <td>{transaction.amount}</td>
             <td> {transaction.contributionId}</td>
-            <td className="completed">pending</td>
+            <td className="completed">completed</td>
             <td>{new Date (transaction.created_at).toDateString()}</td>
         </tr>)
        })
@@ -59,6 +56,7 @@ function AllCompletedTransactions() {
               <thead>
               <tr>
     <th>Transaction Id</th>
+    <th>CheckoutRequestID</th>
     <th>Phone</th>
     <th>Amount</th>
     <th>Contribution Id</th>
