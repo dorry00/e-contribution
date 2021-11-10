@@ -44,7 +44,7 @@
 }
 input{
   margin-top: 5px !important;
-  background-color: white !important;
+  /* background-color: white !important; */
   border-radius: 10px;
 }
 .textareaPlace{
