@@ -185,11 +185,11 @@ input[type="submit"]:hover {
 
 .nav-item:hover:after {
   width: 100%;
-  background: #ffdd40;
+  background: white;
 }
 
 .nav-item .active {
-  color: #ffdd40;
+  color: white;
   border: 1px solid #ffdd40;
 }
 
@@ -202,7 +202,7 @@ input[type="submit"]:hover {
     display: flex;
     flex-direction: column;
     width: 100%;
-    border-top: 1pxsolid #fff;
+    border-top: 1px solid #fff;
     position: absolute;
     top: 80px;
     left: -110%;
@@ -218,7 +218,7 @@ input[type="submit"]:hover {
     z-index: 1;
   }
   .nav-item .active {
-    color: #ffdd40;
+    color: white;
     border: none;
   }
   .nav-links {
@@ -227,96 +227,21 @@ input[type="submit"]:hover {
     display: table;
   }
 
-  .nav-icon {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #ffdd40;
-  }
+ 
 }
 
 
 
-/* navbar css */
-/* .navbar {
-  background: #ffffff;
-  width: 100%;
-  height: 50px;
-  position: sticky;
-  top: 0;
-  display: flex;
-  z-index: 999;
-  position: -webkit-sticky;
-}
-.navbarLeft {
-  flex: 3;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.logo {
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-left: 10px;
-}
-.logoText {
-  margin-left: 20px;
-}
 
-.navbarCenter {
-  flex: 6;
-}
-.navbarRight {
-  flex: 3;
-  display: flex;
-  justify-content: end;
-}
-.navbarList {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  justify-content: center;
-}
-.navbarListItem {
-  margin-right: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 500;
-  margin-top: 15px;
-  color: rgb(189, 187, 185);
-}
 
-.navbarEndItem {
-  font-size: 16px;
-  margin-right: 20px;
-  font-weight: 500;
-  margin-top: 15px;
-}
-.navbarEndItem {
-  background-color: white;
-  color: rgb(88, 86, 86);
-  padding: 6px 10px;
-  margin-top: 6px;
-  border: 1px solid rgb(209, 206, 206);
-  cursor: pointer;
-  margin-right: 10px;
-  opacity: 0.9;
-  width: 100px;
-  border-radius: 30px;
-}
 
-.navbarEndItem:last-child {
-  background-color: teal;
-  border: none;
-  color: white;
-} */
+
+
+
+
+
+
+
 
 /* sideBar */
 

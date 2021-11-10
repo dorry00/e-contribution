@@ -26,6 +26,7 @@ function IndividualContribution() {
   const{user} = useContext(AuthContext)
   const location = useLocation();  
   const path = location.pathname.split("/")[2];
+  const url = `https://msaada-app.netlify.app/${path}`
   const [contribution, setContribution] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -129,32 +130,32 @@ function IndividualContribution() {
         <div className="socialIcons">
            
 
-          <FacebookShareButton url ="https://msaada-app.netlify.app/contribution"
+          <FacebookShareButton url ={url}
                     quote={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
           hashtag={"Helpingiscaring"}>
           <FacebookIcon className="socialIcon" round={true}></FacebookIcon>
           </FacebookShareButton>
 
-          <WhatsappShareButton url ="https://msaada-app.netlify.app/contribution/"
+          <WhatsappShareButton url ={url}
           separator={""}
           title ={"Hello friend I just donated towards this contribution,help us reach the goal by donating too !"}>
           <WhatsappIcon round={true} className="socialIcon"></WhatsappIcon>
           </WhatsappShareButton>
 
-          <TelegramShareButton url ="https://msaada-app.netlify.app/contributions"
+          <TelegramShareButton url ={url}
           title ={"Hello friend I just donated towards this contribution,help us reach the goal by donating too !"}> 
             <TelegramIcon round={true} className="socialIcon">
             </TelegramIcon>
            </TelegramShareButton>
 
-           <TwitterShareButton url ="https://msaada-app.netlify.app/contributions"
+           <TwitterShareButton url ={url}
             hashtags = {["Helpingiscaring"]} 
            title ={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
           ><TwitterIcon round={true} className="socialIcon">
            </TwitterIcon>
            </TwitterShareButton>
 
-           <EmailShareButton url ="https://msaada-app.netlify.app/contributions"
+           <EmailShareButton url ={url}
           hashtags = {["Helpingiscaring"]}
           subject={"Donation to a msaada app contribution"}
           separator={""} 
