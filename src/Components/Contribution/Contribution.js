@@ -89,11 +89,11 @@ function Contribution({ contribution}) {
         <div className="paymentInfo"></div>
         <div className="amount">
           <div className="raised">
-            <h2 className="header"> kes 10,000</h2>
+            <h2 className="header"> kes  {contribution.amount}</h2>
             <span className="headerSpan">raised</span>
           </div>
           <div className="needed">
-            <h2 className="header">kes 10,200</h2>
+            <h2 className="header">kes {contribution.targetAmount}</h2>
             <span className="headerSpan">needed</span>
           </div>
         </div>
