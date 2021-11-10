@@ -43,7 +43,7 @@ function IndividualContribution() {
   // fetch a single post
   // const id = path
   useEffect(() => {
-    let id = { id: path };
+      let id = { id: path };
     const getContribution = async () => {
       const res = await axios.post(
         "https://msaadaproject.herokuapp.com/api/view/contribution",
@@ -173,7 +173,7 @@ function IndividualContribution() {
 
         
 
-        {updateMode ? (
+        {updateMode && (
           
          <div className="editContributionBackground">
     <div className="wrapper">
@@ -306,6 +306,8 @@ function IndividualContribution() {
         
         
       </form>
+      
+      
        <div className="editBtns">
               <button onClick={()=>setUpdateMode(false)}  className="cancelButton">cancel update</button>
               <button type="submit" onClick={handleUpdate} className="editBtn">Edit</button>
@@ -322,18 +324,28 @@ function IndividualContribution() {
             
 
           
-        ) : (
-          <div className="editContribution">
-            <i
-              className=" contributionIcon  far fa-edit"
+        ) }
+
+        {
+          user && (
+          (contribution.createdBy === user.name) && (   
+             <div className="editContribution">
+               <button className="editButton">Edit <i
+              className=" contributionIconEdit  far fa-edit"
               onClick={() => setUpdateMode(true)}
+            ></i></button>
+            <button  onClick={(e)=>{setDeleteMode(true)}} className="deleteButton">Delete<i
+              className=" contributionIconDelete fas fa-trash-alt"
+             
             ></i>
-            <i
-              className=" contributionIcon fas fa-trash-alt"
-              onClick={(e)=>{setDeleteMode(true)}}
-            ></i>
-          </div>
-        )}
+            </button>
+          </div>)
+          )
+        }
+
+          
+      
+        
 
         {
           deleteMode && (<div className="deleteBackground">

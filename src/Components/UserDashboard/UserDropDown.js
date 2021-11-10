@@ -22,13 +22,13 @@ function UserDropDown() {
                   <Link className= "link" to="/transactions">
                   <li>My Transactions</li>
                   </Link>
-                  <Link className="link" to="/userPendingTransactions">
-                  <li>Pending Donations</li>
-                  </Link>
-                  <Link className="link" to="/user donations">
+                   <Link className="link" to="/user donations">
                   <li>My Fundraisers</li>
                   </Link>
-                  
+                  <hr className="hr"/>
+                  <h4>Account Details</h4>
+                  <p>{user.email}</p>
+                  <p>{user.phone}</p>
                   
 
                 </ul>
