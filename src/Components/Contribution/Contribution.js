@@ -19,12 +19,7 @@ function Contribution({ contribution}) {
       }else{
         setAdmin(false)
       }
-    }
-
-
- 
- 
-    
+    }   
     
   }, [user])
 
@@ -39,6 +34,11 @@ function Contribution({ contribution}) {
       description: contribution.description,
       targetAmount: contribution.targetAmount,
       paymentoption: contribution.paymentoption,
+      referee1: contribution.referee1,
+      referee2: contribution.referee2,
+      referee1Phone: contribution.referee1Phone,
+      referee2Phone: contribution.referee2Phone,
+      createdBy: contribution.createdBy,
       verified: 1,
     }
      await axios.post(
@@ -65,7 +65,7 @@ function Contribution({ contribution}) {
             <div className="nameInfo">
               <span className="profileName">
                             
-                  Dorry Elmah
+                  {contribution.createdBy}
                
               </span>
               <span className="contributionDate">
@@ -103,7 +103,7 @@ function Contribution({ contribution}) {
         </Link>
         {
           (admin && !verified) && 
-        <button className="verify" onClick={handleVerify}>{loading && "verifying"} {(verified && !loading) && "verified"}{!loading  && "verified"}</button>
+        <button className="verify" onClick={handleVerify}>{loading && "verifying"}{!loading  && "verify contribution"}</button>
         }
         </div>
        

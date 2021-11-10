@@ -72,7 +72,7 @@ function AllCompletedTransactions() {
               <tbody>
                   {loading && <Loading className="loadingg"/>}
                   <span>
-                  {(transactions.length === 0) && <p>No donations yet!</p> }
+                  {(transactions.length === 0) && <p> className="No donations yet!</p> }
                   </span> 
                   {
                                  displayTransactions

@@ -97,7 +97,7 @@ function IndividualContribution() {
           <div className="IndividualContribution">
         <h1 className="contributionHeader">{contribution.title}</h1>
         <p className="description">{contribution.description}</p>
-        <p className="author">Contribution by <span>Dorry Elmah</span></p>
+        <p className="author">Contribution by <span>{contribution.createdBy}</span></p>
         <p className="author">created on<span> {new Date(contribution.created_at).toDateString()} </span></p>
         <button type="submit" className="paymentButton" onClick={() => setopenPaymentModal(true)}>Donate</button>
 
