@@ -19,6 +19,7 @@ import Footer from "./Components/Footer/Footer";
 import AllCompletedTransactions from "./Components/AllCompletedTransactions/AllCompletedTransactions";
 import PendingTransactions from "./Components/PendingTransactions/PendingTransactions";
 import UserDashBoard from "./Components/UserDashboard/UserDashBoard";
+import UserDonations from "./Components/UserDonations/UserDonations";
 function App() {
   const { user } = useContext(AuthContext);
   const[ admin, setAdmin ]= useState(false);
@@ -74,11 +75,15 @@ function App() {
           <Route path="/admin">
               {admin?<AdminDashboard/>:<Login/>}
           </Route>
+          <Route path="/user donations">
+          {user?<UserDonations/>:<Login/>}
+
+          </Route>
           <Route path="/dashboard">
             {user?<UserDashBoard/>:<Login/>}
             
             </Route>
-            <Route>
+            <Route path = "/userPendingTransactions">
               {user?<UserPendingTransactions/>:<Login/>}
             </Route>
           {/* <Route>

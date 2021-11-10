@@ -20,10 +20,13 @@ function UserDropDown() {
                   <li> Create Contributions</li>
                   </Link>
                   <Link className= "link" to="/transactions">
-                  <li>My Donations</li>
+                  <li>My Transactions</li>
                   </Link>
                   <Link className="link" to="/userPendingTransactions">
                   <li>Pending Donations</li>
+                  </Link>
+                  <Link className="link" to="/user donations">
+                  <li>My Fundraisers</li>
                   </Link>
                   
                   
