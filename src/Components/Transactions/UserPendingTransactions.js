@@ -7,7 +7,7 @@ import ReactPaginate from "react-paginate"
 import UserDropDown from '../UserDashboard/UserDropDown';
 
 
-function Transactions() {
+function UserPendingTransactions() {
     const {user} = useContext(AuthContext)
     const [loading, setLoading] = useState(true);
     const [transactions, setTransactions] = useState([]);
@@ -18,7 +18,7 @@ function Transactions() {
       const fetchTransactions = async () => {
         setLoading(true);
         const response = await axios.get(
-          "https://msaadaproject.herokuapp.com/api/completed/transactions"
+          "https://msaadaproject.herokuapp.com/api/pending/transactions"
         );
         setTransactions(response.data.response);
         setFiltredResults(response.data.response)
@@ -43,7 +43,7 @@ function Transactions() {
             <td> {transaction.PhoneNumber}</td>
             <td>{transaction.Amount}</td>
              <td> {transaction.contributionId}</td>
-            <td className="completed">completed</td>
+            <td className="pending">pending</td>
             <td>{new Date (transaction.created_at).toDateString()}</td>
         </tr>)
        })
@@ -107,4 +107,4 @@ function Transactions() {
     )
 }
 
-export default Transactions
+export default UserPendingTransactions

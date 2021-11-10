@@ -16,19 +16,17 @@ function UserDropDown() {
             UserDropdown && (
               <div className="dropDownLinks">
                 <ul>
-                  <Link className="link" to="/createContribution">
+                  <Link className="link" to="/dashboard">
                   <li> Create Contributions</li>
                   </Link>
                   <Link className= "link" to="/transactions">
                   <li>My Donations</li>
                   </Link>
-                  <Link className="link" to="/userpendingtransactions">
+                  <Link className="link" to="/userPendingTransactions">
                   <li>Pending Donations</li>
                   </Link>
                   <Link></Link>
-                  <Link className="link" to ="/my fundraisers">
-                  <li>My Fundraisers</li>
-                  </Link>
+                  
 
                 </ul>
               </div>

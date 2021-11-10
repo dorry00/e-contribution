@@ -8,7 +8,7 @@ import { useContext, useState, useEffect} from "react";
 import { AuthContext } from "./Context/AuthContext";
 import Dashboard from "./Pages/Dashboard";
 import Navbar from "./Components/Navbar";
-
+import UserPendingTransactions from "./Components/Transactions/UserPendingTransactions";
 import ViewallContributions from "./Components/ViewallContributions";
 import IndividualContribution from "./Components/IndividualContribution";
 import AccountDetails from "./Components/AccountDetails/AccountDetails";
@@ -77,6 +77,9 @@ function App() {
           <Route path="/dashboard">
             {user?<UserDashBoard/>:<Login/>}
             
+            </Route>
+            <Route>
+              {user?<UserPendingTransactions/>:<Login/>}
             </Route>
           {/* <Route>
              {user?<UpdateAccount/>:<Login/>}

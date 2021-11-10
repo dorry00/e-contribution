@@ -63,6 +63,18 @@ td , th{
   justify-content: center;
   
 }
+ 
+table .pending {
+  background-color: #fff0c2;
+  color: #a68b00;
+  height: 30px;
+  justify-content: center;
+  border-radius: 5px;
+}
+.pendingParagraph{
+  text-align: center;
+}
+
 
 /* .filter{
     position: absolute;
@@ -88,6 +100,7 @@ td , th{
        border-radius: 5px;
      }
    
+     /*
      table .status-unpaid {
        background-color: #ffcdd2;
        color: #c62828;
