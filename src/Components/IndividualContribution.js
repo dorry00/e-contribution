@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import axios from "axios";
 import "../Components/IndividualContribution/IndividualContribution.css"
@@ -18,11 +18,13 @@ import {
   TwitterIcon,
   WhatsappIcon,
   } from "react-share";
+import { AuthContext } from "../Context/AuthContext";
 
 
 
 function IndividualContribution() {
-  const location = useLocation();
+  const{user} = useContext(AuthContext)
+  const location = useLocation();  
   const path = location.pathname.split("/")[2];
   const [contribution, setContribution] = useState({});
   const [title, setTitle] = useState("");
@@ -33,6 +35,10 @@ function IndividualContribution() {
   const [openPaymentModal, setopenPaymentModal] = useState();
   const[deleteMode,setDeleteMode]=useState(false);
   const[loading,setLoading] =useState(false)
+  const[referee1,setReferee1] = useState("");
+ const[referee2,setReferee2] = useState("");
+ const[referee1Phone,setReferee1Phone] = useState("")
+ const[referee2Phone,setreferee2Phone] = useState("")
 
   // fetch a single post
   // const id = path
@@ -49,6 +55,12 @@ function IndividualContribution() {
       setDescription(res.data.response.description);
       setTargetAmount(res.data.response.targetAmount);
       setPaymentOption(res.data.response.paymentoption);
+      setReferee1(res.data.response.referee1);
+      setReferee2(res.data.response.referee2);
+      setReferee1Phone(res.data.response.referee1Phone)
+      setreferee2Phone(res.data.response.referee2Phone)
+
+
     };
     getContribution();
   }, [path]);
@@ -81,6 +93,11 @@ function IndividualContribution() {
       description: description,
       targetAmount: targetAmount,
       paymentoption: paymentoption,
+      createdBy:user.name,
+      referee1:referee1,
+      referee1Phone:referee1Phone,
+      referee2:referee2,
+      referee2Phone:referee2Phone,
       verified: 1,
     }
     await axios.post(
@@ -97,7 +114,7 @@ function IndividualContribution() {
           <div className="IndividualContribution">
         <h1 className="contributionHeader">{contribution.title}</h1>
         <p className="description">{contribution.description}</p>
-        <p className="author">Contribution by <span>{contribution.createdBy}</span></p>
+        <p className="author">Contribution by <span>Dorry Elmah</span></p>
         <p className="author">created on<span> {new Date(contribution.created_at).toDateString()} </span></p>
         <button type="submit" className="paymentButton" onClick={() => setopenPaymentModal(true)}>Donate</button>
 
@@ -110,7 +127,7 @@ function IndividualContribution() {
           <FacebookIcon className="socialIcon" round={true}></FacebookIcon>
           </FacebookShareButton>
 
-          <WhatsappShareButton url ="https://msaada-app.netlify.app/contribution"
+          <WhatsappShareButton url ="https://msaada-app.netlify.app/contribution/"
           separator={""}
           title ={"Hello friend I just donated towards this contribution,help us reach the goal by donating too !"}>
           <WhatsappIcon round={true} className="socialIcon"></WhatsappIcon>
@@ -146,8 +163,8 @@ function IndividualContribution() {
 
       <div >
         <div className="amount-raised-container">
-          <div className="amount-raised"><span className="amount-text">{contribution.amount} /=</span> raised </div>
-          <div className="dollars-per-mile">{contribution.targetAmount} /= needed</div>
+          <div className="amount-raised"><span className="amount-text">{targetAmount} /=</span> raised </div>
+          <div className="dollars-per-mile">{targetAmount} /= needed</div>
         </div>
         </div>
 
@@ -158,62 +175,152 @@ function IndividualContribution() {
 
         {updateMode ? (
           
-          <div className="contributionBackground">
-          <div className="updateContributionForm">
-          <h3> Edit contribution</h3>
-            <form >
-              <div className="editForm">
-              <div className="inputs">
-                <label>Title</label>
-              <input
-                className="input"
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-              <label>Amount</label>
-              <input
-                type="text"
-                className="input"
-                value={targetAmount}
-                onChange={(e) => setTargetAmount(e.target.value)}
-              />
-               <label>Payment option</label>
-              <input
-                type="text"
-                className="input"
-                value={paymentoption}
-                onChange={(e) => setPaymentOption(e.target.value)}
-              />
-            
-              </div>
-              <div className="textareas">
-              <label>Description</label>
-              <textarea
-                type="text"
-                className="input"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-              </div>
-              
-             
-              </div>
-             
-              
-                  
+         <div className="editContributionBackground">
+    <div className="wrapper">
+        <div className="createContributionWrapper">
+        <h1 className="formTitle">Edit Contribution</h1>
+        <hr className="hr" />
+      <form className="formInputs" > 
+      
+      
+          
 
-              
-            </form>
-            <div className="editBtns">
+        <div className="inputs">
+       
+        {/* <span className="errorMessage">{errors.title}</span> */}
+         
+          
+          <input
+         
+            type="text"
+            placeholder="Enter a contribution title..."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            title="title"
+            className="input"
+            autoComplete="true"
+          />
+          {/* <span className="errorMessage">{errors.targetAmount}</span> */}
+         
+         
+          <input
+            type="text"
+            placeholder="Enter a target amount..."
+            value={targetAmount}
+            onChange={(e) => setTargetAmount(e.target.value)}
+            name="targetamount"
+            required
+            className="input"
+            autoComplete="true"
+          />
+          {/* <span className="errorMessage">{errors.paymentoption}</span> */}
+          
+           <input
+          type="text"
+          placeholder=" paymentOption eg m-pesa"
+          name="psw"
+          value={paymentoption}
+          onChange={(e) => setPaymentOption(e.target.value)}
+          required
+          className="input"
+          autoComplete="true"
+        />
+        {/* <span className="errorMessage">{errors.paymentoption}</span> */}
+          
+          <input
+         type="tel"
+         placeholder=" Enter referee 1 name"
+        
+         value={referee1}
+         onChange={(e) => setReferee1(e.target.value)}
+         required
+         className="input"
+         autoComplete="true"
+       />
+       {/* <span className="errorMessage">{errors.referee1Phone}</span> */}
+          
+          <input
+         type="tel"
+         placeholder=" Enter referee 1 phone number"
+         value={referee1Phone}
+         onChange={(e) => setReferee1Phone(e.target.value)}
+         required
+         className="input"
+         autoComplete="true"
+       />
+       {/* <span className="errorMessage">{errors.paymentoption}</span> */}
+          
+          <input
+         type="text"
+         placeholder=" Enter referee 2 name"
+         name="psw"
+         value={referee2}
+         onChange={(e) => setReferee2(e.target.value)}
+         required
+         className="input"
+         autoComplete="true"
+       />
+       {/* <span className="errorMessage">{errors.paymentoption}</span> */}
+          
+          <input
+         type="tel"
+         placeholder=" Enter referee 2 phone number"
+         value={referee2Phone}
+         onChange={(e) => setreferee2Phone(e.target.value)}
+         required
+         className="input"
+         autoComplete="true"
+       />
+
+       
+
+          
+        
+
+
+          
+          
+        
+        
+        
+        {/* <span className="errorMessage">{errors.description}</span> */}
+          <textarea
+            type="text"
+            id="description"
+            className="textareaPlace"
+           placeholder="Enter a description for your contribution... "
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            name="description"
+            required
+            autoComplete="true"
+          />
+         
+      
+        
+
+       
+       
+          </div>
+          
+        
+        
+      </form>
+       <div className="editBtns">
               <button onClick={()=>setUpdateMode(false)}  className="cancelButton">cancel update</button>
               <button type="submit" onClick={handleUpdate} className="editBtn">Edit</button>
               </div>
+     
+
+    </div>
+   
+    </div> 
+    </div>
+           
 
             
             
-</div>
-          </div>
+
           
         ) : (
           <div className="editContribution">

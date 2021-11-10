@@ -463,10 +463,8 @@ input[type="submit"]:hover {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   line-height: 24px;
- 
   overflow: hidden;
- 
-  -webkit-box-orient: vertical;
+   -webkit-box-orient: vertical;
 }
 
 .creationInfo {

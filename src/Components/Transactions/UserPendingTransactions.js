@@ -76,7 +76,7 @@ function UserPendingTransactions() {
               <tbody>
                   {loading && <Loading className="loading"/>}
                   <span>
-                  {((transactions.length === 0) && !loading)&& <p>No donations yet!</p> }
+                  {((transactions.length === 0) && !loading)&& <p className="pendingParagraph">No donations yet!</p> }
                   </span> 
                  
                                   
