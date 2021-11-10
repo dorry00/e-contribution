@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    
   
 }
 .adminHeader{
@@ -17,7 +18,9 @@
     color:black;
 }
 .dropDownLinks{
-    background-color: white;
+    background-color:rgb(219, 231, 231) !important;
+    
+    border-radius:10px ;
     width: 15%;
     height: 25%;
     margin-left: 30px;
