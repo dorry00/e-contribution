@@ -103,8 +103,9 @@ function IndividualContribution() {
     await axios.post(
       "https://msaadaproject.herokuapp.com/api/update/contribution", updatedDetails
     );
+    
+  
     window.location.reload()
-    setUpdateMode(false)
   };
 
   // end of delete
@@ -114,8 +115,15 @@ function IndividualContribution() {
           <div className="IndividualContribution">
         <h1 className="contributionHeader">{contribution.title}</h1>
         <p className="description">{contribution.description}</p>
-        <p className="author">Contribution by <span>Dorry Elmah</span></p>
+        <p className="author">Contribution by <span>{contribution.createdBy}</span></p>
         <p className="author">created on<span> {new Date(contribution.created_at).toDateString()} </span></p>
+        <h3>Referees</h3>
+        <hr className="hr"/>
+        <ul>
+          <li>{contribution.referee1} - {contribution.referee1Phone}</li>
+          <li>{contribution.referee2} - {contribution.referee2Phone}</li>
+          </ul>
+
         <button type="submit" className="paymentButton" onClick={() => setopenPaymentModal(true)}>Donate</button>
 
         <div className="socialIcons">
@@ -133,20 +141,20 @@ function IndividualContribution() {
           <WhatsappIcon round={true} className="socialIcon"></WhatsappIcon>
           </WhatsappShareButton>
 
-          <TelegramShareButton url ="https://msaada-app.netlify.app/contribution"
+          <TelegramShareButton url ="https://msaada-app.netlify.app/contributions"
           title ={"Hello friend I just donated towards this contribution,help us reach the goal by donating too !"}> 
             <TelegramIcon round={true} className="socialIcon">
             </TelegramIcon>
            </TelegramShareButton>
 
-           <TwitterShareButton url ="https://msaada-app.netlify.app/contribution"
+           <TwitterShareButton url ="https://msaada-app.netlify.app/contributions"
             hashtags = {["Helpingiscaring"]} 
            title ={"Hello friend I just donated towards this contribution, help us reach the goal by donating too !"}
           ><TwitterIcon round={true} className="socialIcon">
            </TwitterIcon>
            </TwitterShareButton>
 
-           <EmailShareButton url ="https://msaada-app.netlify.app/contribution"
+           <EmailShareButton url ="https://msaada-app.netlify.app/contributions"
           hashtags = {["Helpingiscaring"]}
           subject={"Donation to a msaada app contribution"}
           separator={""} 
@@ -163,8 +171,8 @@ function IndividualContribution() {
 
       <div >
         <div className="amount-raised-container">
-          <div className="amount-raised"><span className="amount-text">{contribution.targetAmount} /=</span> raised </div>
-          <div className="dollars-per-mile">{contribution.amount} /= needed</div>
+          <div className="amount-raised"><span className="amount-text">{contribution.amount} /=</span> raised </div>
+          <div className="dollars-per-mile">{contribution.targetAmount} /= needed</div>
         </div>
         </div>
 
@@ -313,7 +321,7 @@ function IndividualContribution() {
               <button type="submit" onClick={handleUpdate} className="editBtn">Edit</button>
               </div>
      
-
+  
     </div>
    
     </div> 
@@ -330,11 +338,11 @@ function IndividualContribution() {
           user && (
           (contribution.createdBy === user.name) && (   
              <div className="editContribution">
-               <button className="editButton">Edit <i
+               <button className="editButton"  onClick={() => setUpdateMode(true)}>Edit <i
               className=" contributionIconEdit  far fa-edit"
-              onClick={() => setUpdateMode(true)}
+             
             ></i></button>
-            <button  onClick={(e)=>{setDeleteMode(true)}} className="deleteButton">Delete<i
+            <button  onClick={()=>setDeleteMode(true)} className="deleteButton">Delete<i
               className=" contributionIconDelete fas fa-trash-alt"
              
             ></i>
