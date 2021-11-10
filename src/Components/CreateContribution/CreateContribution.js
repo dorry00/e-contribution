@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import "./CreateContribution.css";
-import Sidebar from "../Sidebar/Sidebar";
+
 
 function CreateContribution() {
   const [title, setTitle] = useState("");
@@ -55,10 +55,10 @@ function CreateContribution() {
   return (
     <>
     <div className="createContributionContainer">
-      <Sidebar className="sidebar"/>
+      
    
     <div className="createContribution">
-        <div className="createContributionWrapper">
+             <div className="createContributionWrapper">
         <h1 className="formTitle">Create A Contribution</h1>
       <form className="formInputs" > 
       
@@ -145,7 +145,8 @@ function CreateContribution() {
      
 
     </div>
-    </div>
+   
+    </div> 
     </div>
     </>
   );

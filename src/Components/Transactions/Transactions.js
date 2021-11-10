@@ -5,6 +5,7 @@ import "./Transactions.css"
 import Loading from '../Loading/Loading';
 import { AuthContext } from '../../Context/AuthContext';
 import ReactPaginate from "react-paginate"
+import UserDropDown from '../UserDashboard/UserDropDown';
 
 
 function Transactions() {
@@ -58,7 +59,7 @@ function Transactions() {
   
     return (
       <div className="transactionsWrapper">
-          <Sidebar/>
+         <UserDropDown/>
           <div className="transactions">
 
           <table>

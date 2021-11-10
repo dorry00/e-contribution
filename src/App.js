@@ -8,7 +8,7 @@ import { useContext, useState, useEffect} from "react";
 import { AuthContext } from "./Context/AuthContext";
 import Dashboard from "./Pages/Dashboard";
 import Navbar from "./Components/Navbar";
-import CreateContribution from "./Components/CreateContribution/CreateContribution";
+
 import ViewallContributions from "./Components/ViewallContributions";
 import IndividualContribution from "./Components/IndividualContribution";
 import AccountDetails from "./Components/AccountDetails/AccountDetails";
@@ -18,6 +18,7 @@ import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
 import Footer from "./Components/Footer/Footer";
 import AllCompletedTransactions from "./Components/AllCompletedTransactions/AllCompletedTransactions";
 import PendingTransactions from "./Components/PendingTransactions/PendingTransactions";
+import UserDashBoard from "./Components/UserDashboard/UserDashBoard";
 function App() {
   const { user } = useContext(AuthContext);
   const[ admin, setAdmin ]= useState(false);
@@ -54,15 +55,13 @@ function App() {
         <Route path="/contributions">
           <ViewallContributions />
         </Route>
-        <Route path="/createContribution">
-        {user?<CreateContribution/>:<Login/>}
-        </Route>
+       
         <Route path="/accountDetails">
         {user?<AccountDetails />:<Login/>}
           </Route>
-        <Route path="/dashboard">
+        {/* <Route path="/dashboard">
           <Dashboard />
-        </Route>
+        </Route> */}
         <Route path ="/alltransactions">
           {admin?<AllCompletedTransactions/>:<Login/>}
         </Route>
@@ -75,6 +74,10 @@ function App() {
           <Route path="/admin">
               {admin?<AdminDashboard/>:<Login/>}
           </Route>
+          <Route path="/dashboard">
+            {user?<UserDashBoard/>:<Login/>}
+            
+            </Route>
           <Route>
              {user?<UpdateAccount/>:<Login/>}
           </Route>

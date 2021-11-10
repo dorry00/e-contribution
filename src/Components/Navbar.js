@@ -1,9 +1,7 @@
 import React,{useContext, useState} from "react";
 import { AuthContext } from "../Context/AuthContext";
 import "../App.css";
-import { Link, NavLink } from "react-router-dom";
-import image1 from "../Assets/Images/pic.png.png"
-
+import {  NavLink } from "react-router-dom";
 function Navbar() {
   const { user, dispatch } = useContext(AuthContext)
   const handleLogout =()=>{
@@ -49,7 +47,7 @@ function Navbar() {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/createContribution"
+                to="/dashboard"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
