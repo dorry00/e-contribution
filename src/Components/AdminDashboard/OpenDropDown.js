@@ -20,13 +20,7 @@ function OpenDropDown() {
                   <Link className= "link" to="/alltransactions">
                   <li>Completed Donations</li>
                   </Link>
-                  <Link className="link" to="/pending transactions">
-                  <li>Pending Donations</li>
-                  </Link>
-
-                  <Link className="link">
-                  <li>Logout</li>
-                  </Link>
+                 
 
                 </ul>
               </div>

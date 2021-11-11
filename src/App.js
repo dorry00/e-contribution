@@ -23,6 +23,7 @@ function App() {
 
       if (user.email === "admin@msaada.com") {
         setAdmin(true)
+        admin && window.location.replace("/admin")
       }
       else {
         setAdmin(false)
@@ -46,8 +47,9 @@ function App() {
           <Register />
         </Route>
         <Route path="/login">
-          {user ? <UserDashBoard /> : <Login />}
-        </Route>
+          {user ? <UserDashBoard />:<Login />}
+          
+           </Route>
         <Route path="/contributions">
           <ViewallContributions />
         </Route>
