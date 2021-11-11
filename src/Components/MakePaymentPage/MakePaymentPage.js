@@ -4,7 +4,7 @@ import "./MakePaymentPage.css"
 import axios from "axios";
 import swal from "sweetalert";
 
-function MakePaymentPage({ contributionId, contributionTitle, closePaymentModal }) {
+function MakePaymentPage({ contributionId, contributionTitle, closePaymentModal, createdBy }) {
     const { user } = useContext(AuthContext);
     const [telephone, setTelephone] = useState("");
     const [amount, setAmount] = useState("");
@@ -63,7 +63,7 @@ function MakePaymentPage({ contributionId, contributionTitle, closePaymentModal 
                 <div className="donationDetails">
                     {user && <p className="leadParagraph">Hello, {user.name}</p>}
                     <p className="contributionDetails">You are contributing for <span className="span"> <b>{contributionTitle}</b></span> </p>
-                    <p className="paragraph">Your contribution is benefiting Dorry Elmah</p>
+                    <p className="paragraph">Your contribution is benefiting {createdBy}</p>
                 </div>
                 <div>
                     <form>

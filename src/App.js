@@ -24,6 +24,7 @@ function App() {
       if (user.email === "admin@msaada.com") {
         setAdmin(true)
         admin && window.location.replace("/admin")
+      
       }
       else {
         setAdmin(false)
@@ -32,6 +33,10 @@ function App() {
 
 
   }, [user])
+ 
+
+
+  
 
   return (
     <div className="App">

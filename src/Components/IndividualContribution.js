@@ -40,9 +40,12 @@ function IndividualContribution() {
  const[referee2,setReferee2] = useState("");
  const[referee1Phone,setReferee1Phone] = useState("")
  const[referee2Phone,setreferee2Phone] = useState("")
+ const[admin,setAdmin] = useState(false)
 
-  // fetch a single post
-  // const id = path
+ 
+
+
+
   useEffect(() => {
       let id = { id: path };
     const getContribution = async () => {
@@ -64,7 +67,17 @@ function IndividualContribution() {
 
     };
     getContribution();
-  }, [path]);
+
+    if (user) {
+
+      if (user.email === "admin@msaada.com") {
+        setAdmin(true)
+     }
+      else {
+        setAdmin(false)
+      }
+    }
+  }, [path,user]);
 
   // delete a single contribution
   const handleDelete = async (e) => {
@@ -112,7 +125,7 @@ function IndividualContribution() {
   // end of delete
   return (
     <div className="IndividualContributionWrapper">
-      {openPaymentModal && <MakePaymentPage contributionId={contribution.id} contributionTitle={contribution.title} closePaymentModal={setopenPaymentModal} />}
+      {openPaymentModal && <MakePaymentPage contributionId={contribution.id} createdBy ={contribution.createdBy} contributionTitle={contribution.title} closePaymentModal={setopenPaymentModal} />}
           <div className="IndividualContribution">
         <h1 className="contributionHeader">{contribution.title}</h1>
         <p className="description">{contribution.description}</p>
@@ -336,8 +349,8 @@ function IndividualContribution() {
         ) }
 
         {
-          user && (
-          (contribution.createdBy === user.name) && (   
+          (user) && (
+          (contribution.createdBy === user.name || admin) && (   
              <div className="editContribution">
                <button className="editButton"  onClick={() => setUpdateMode(true)}>Edit <i
               className=" contributionIconEdit  far fa-edit"
