@@ -123,7 +123,7 @@ function CreateContribution() {
           className="input"
           autoComplete="true"
         />
-        <span className="errorMessage">{errors.paymentoption}</span>
+        <span className="errorMessage">{errors.referee1}</span>
           
           <input
          type="tel"
@@ -146,7 +146,7 @@ function CreateContribution() {
          className="input"
          autoComplete="true"
        />
-       <span className="errorMessage">{errors.paymentoption}</span>
+       <span className="errorMessage">{errors.referee2}</span>
           
           <input
          type="text"
@@ -158,7 +158,7 @@ function CreateContribution() {
          className="input"
          autoComplete="true"
        />
-       <span className="errorMessage">{errors.paymentoption}</span>
+       <span className="errorMessage">{errors.referee2Phone}</span>
           
           <input
          type="tel"

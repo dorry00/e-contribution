@@ -78,7 +78,7 @@ function MakePaymentPage({ contributionId, contributionTitle, closePaymentModal,
 
                         <div className="formButtons">
                             <button className="cancelBtn" onClick={() => closePaymentModal(false)}>cancel</button>
-                            <button className="donateBtn" onClick={handlePayment}>{!loading && "Donate"} {loading && "processing...please wait"}</button>
+                            <button className="donateBtn" onClick={handlePayment}>{!loading && "Donate"} {loading && "Processing...please wait"}</button>
                         </div>
 
                     </form>
