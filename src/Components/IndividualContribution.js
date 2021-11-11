@@ -119,7 +119,7 @@ function IndividualContribution() {
         <p className="author">Contribution by <span>{contribution.createdBy}</span></p>
         <p className="author">created on<span> {new Date(contribution.created_at).toDateString()} </span></p>
         <h3>Referees</h3>
-        <hr className="hr"/>
+       
         <ul>
           <li>{contribution.referee1} - {contribution.referee1Phone}</li>
           <li>{contribution.referee2} - {contribution.referee2Phone}</li>
