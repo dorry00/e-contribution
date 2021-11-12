@@ -144,6 +144,24 @@ input{
   margin: 10px;
 
 }
+.refereeHeader{
+  margin-right: 20px;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 20px;
+  color: teal;
+
+}
+.refereeList{
+  list-style: none;
+
+
+}
+.refereeListItem{
+  line-height: 30px;
+  text-decoration: none !important;
+
+}
 
 
 .amount-raised {

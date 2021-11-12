@@ -118,7 +118,7 @@ function IndividualContribution() {
       "https://msaadaproject.herokuapp.com/api/update/contribution", updatedDetails
     );
     
-  
+  setUpdateMode(false)
     window.location.reload()
   };
 
@@ -130,12 +130,12 @@ function IndividualContribution() {
         <h1 className="contributionHeader">{contribution.title}</h1>
         <p className="description">{contribution.description}</p>
         <p className="author">Contribution by <span>{contribution.createdBy}</span></p>
-        <p className="author">created on<span> {new Date(contribution.created_at).toDateString()} </span></p>
-        <h3>Referees</h3>
+        <p className="author">Created on<span> {new Date(contribution.created_at).toDateString()} </span></p>
+        <h3 className ="refereeHeader">Referees</h3>
        
-        <ul>
-          <li>{contribution.referee1} - {contribution.referee1Phone}</li>
-          <li>{contribution.referee2} - {contribution.referee2Phone}</li>
+        <ul className="refereeList">
+          <li className="refereeListItem">{contribution.referee1} - {contribution.referee1Phone}</li>
+          <li className="refereeListItem">{contribution.referee2} - {contribution.referee2Phone}</li>
           </ul>
 
         <button type="submit" className="paymentButton" onClick={() => setopenPaymentModal(true)}>Donate</button>
@@ -294,17 +294,7 @@ function IndividualContribution() {
          autoComplete="true"
        />
 
-       
-
-          
-        
-
-
-          
-          
-        
-        
-        
+      
         {/* <span className="errorMessage">{errors.description}</span> */}
           <textarea
             type="text"
@@ -340,12 +330,7 @@ function IndividualContribution() {
    
     </div> 
     </div>
-           
-
-            
-            
-
-          
+        
         ) }
 
         {
@@ -363,11 +348,7 @@ function IndividualContribution() {
             </button>
           </div>)
           )
-        }
-
-          
-      
-        
+        }   
 
         {
           deleteMode && (<div className="deleteBackground">
