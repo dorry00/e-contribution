@@ -74,6 +74,42 @@ table .pending {
 .pendingParagraph{
   text-align: center;
 }
+.nextLink{
+  background-color: teal;
+  width: 100px !important;
+  cursor: pointer;
+  text-decoration: none;
+}
+.nextLink{
+  background-color: teal;
+  width: 100px !important;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px;
+}
+.previousLink{
+
+  background-color: teal;
+  width: 100px !important;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 10px;
+ 
+}
+.pagination{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  justify-content: space-evenly;
+ 
+}
+.activeButton{
+  background-color: teal;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 
 
 /* .filter{

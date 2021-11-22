@@ -18,6 +18,7 @@ import UserDonations from "./Components/UserDonations/UserDonations";
 function App() {
   const { user } = useContext(AuthContext);
   const [admin, setAdmin] = useState(false);
+
   useEffect(() => {
     if (user) {
 
