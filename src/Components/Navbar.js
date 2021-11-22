@@ -15,9 +15,9 @@ function Navbar() {
     <>
     
     <nav className="navbar">
-        <div className="nav-container">
+        <div className="navContainer">
           <NavLink exact to="/" className="nav-logo">
-            Msaada App
+            Msaada 
                   
           </NavLink>
 
